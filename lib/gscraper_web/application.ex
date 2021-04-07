@@ -14,7 +14,8 @@ defmodule GscraperWeb.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: GscraperWeb.PubSub},
       # Start the Endpoint (http/https)
-      GscraperWebWeb.Endpoint
+      GscraperWebWeb.Endpoint,
+      {Oban, oban_config()}
       # Start a worker by calling: GscraperWeb.Worker.start_link(arg)
       # {GscraperWeb.Worker, arg}
     ]
@@ -30,5 +31,10 @@ defmodule GscraperWeb.Application do
   def config_change(changed, _new, removed) do
     GscraperWebWeb.Endpoint.config_change(changed, removed)
     :ok
+  end
+
+  # Conditionally disable crontab, queues, or plugins here.
+  defp oban_config do
+    Application.get_env(:gscraper_web, Oban)
   end
 end

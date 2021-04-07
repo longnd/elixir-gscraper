@@ -16,6 +16,8 @@ defmodule GscraperWeb.DataCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       alias GscraperWeb.Repo
@@ -24,14 +26,15 @@ defmodule GscraperWeb.DataCase do
       import Ecto.Changeset
       import Ecto.Query
       import GscraperWeb.DataCase
+      import GscraperWeb.Factory
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GscraperWeb.Repo)
+    :ok = Sandbox.checkout(GscraperWeb.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
+      Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
     end
 
     :ok

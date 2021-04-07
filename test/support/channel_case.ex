@@ -17,11 +17,14 @@ defmodule GscraperWebWeb.ChannelCase do
 
   use ExUnit.CaseTemplate
 
+  alias Ecto.Adapters.SQL.Sandbox
+
   using do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
       import GscraperWebWeb.ChannelCase
+      import GscraperWeb.Factory
 
       # The default endpoint for testing
       @endpoint GscraperWebWeb.Endpoint
@@ -29,10 +32,10 @@ defmodule GscraperWebWeb.ChannelCase do
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(GscraperWeb.Repo)
+    :ok = Sandbox.checkout(GscraperWeb.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
+      Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
     end
 
     :ok
