@@ -1,8 +1,9 @@
-[![Build Status](CI_BADGE_URL goes here)](REPO_URL goes here)
-
 ## Introduction
 
-> *App introduction goes here ...*
+This is a web application built on [Elixir](https://elixir-lang.org/), using [Phoenix Framework](https://phoenixframework.org/) 
+that provide the ability to scrap the Google search result and generating the report.
+
+It is used to practice and demonstrate my learning of these two great technology. 
 
 ## Project Setup
 
@@ -62,7 +63,7 @@
 
 ### Production
 
-* Buidl Docker image
+* Build Docker image
 
   ```sh
   docker-compose build
