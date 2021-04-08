@@ -1,0 +1,37 @@
+name: Deploy Staging
+
+on:
+  workflow_run:
+    workflows:
+      - Test
+    branches:
+      - develop
+    types:
+      - completed
+  workflow_dispatch:
+
+env:
+  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+  HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME_STAGING }}
+
+jobs:
+  deploy:
+    name: Deploy Staging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Login to Heroku Container registry
+        run: heroku container:login
+
+      - name: Build and push
+        run: heroku container:push -a ${{ env.HEROKU_APP_NAME }} web
+
+      - name: Release
+        run: heroku container:release -a ${{ env.HEROKU_APP_NAME }} web
