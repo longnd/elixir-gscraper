@@ -18,6 +18,7 @@ jobs:
   deploy:
     name: Deploy Staging
     runs-on: ubuntu-latest
+
     steps:
       - name: Cancel previous runs
         uses: styfle/cancel-workflow-action@0.6.0
