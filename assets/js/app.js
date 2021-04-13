@@ -17,3 +17,4 @@ import "core-js/stable"
 import "regenerator-runtime/runtime"
 
 import "phoenix_html"
+import "bootstrap.native"
