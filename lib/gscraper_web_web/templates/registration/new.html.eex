@@ -1,0 +1,27 @@
+<div class="card card-auth">
+  <div class="card-auth__title">
+    <h4>Sign up</h4>
+  </div>
+  <form class="form form-auth">
+    <div class="form__group required">
+      <label for="username" class="required">Username</label>
+      <input class="form__control" required="required" autofocus="autofocus" type="text" name="email">
+      <div class="form__feedback"></div>
+    </div>
+    <div class="form__group required">
+      <label for="password" class="required">Password</label>
+      <input class="form__control" required="required" autofocus="autofocus" type="password" name="password">
+      <div class="form__feedback"></div>
+    </div>
+    <div class="form__group required">
+      <label for="password_confirm" class="required">Password confirmation</label>
+      <input class="form__control" required="required" autofocus="autofocus" type="password" name="password_confirm">
+      <div class="form__feedback"></div>
+    </div>
+    <button class="btn btn--primary" type="submit">Sign up</button>
+    <div class="form-auth__footer">
+      <span>Already had an account?</span>
+      <a href="/">Sign in</a>
+    </div>
+  </form>
+</div>
