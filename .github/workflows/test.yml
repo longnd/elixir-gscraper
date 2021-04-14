@@ -1,5 +1,6 @@
-name: "Tests"
-on: pull_request
+name: Test
+
+on: push
 
 env:
   OTP_VERSION: "23.0.2"
@@ -7,6 +8,7 @@ env:
 
 jobs:
   test:
+    name: Test
     runs-on: ubuntu-latest
 
     services:
@@ -22,11 +24,18 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.6.0
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
 
-      - uses: erlef/setup-elixir@v1
+      - name: Setup Elixir
+        uses: erlef/setup-beam@v1
         with:
           otp-version: ${{ env.OTP_VERSION }}
           elixir-version: ${{ env.ELIXIR_VERSION }}
@@ -42,12 +51,13 @@ jobs:
             ${{ runner.os }}-mix-
 
       - name: Cache Node npm
+        id: node-modules-cache
         uses: actions/cache@v2
         with:
           path: assets/node_modules
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-nodemodules-
 
       - name: Install Dependencies
         run: mix deps.get
@@ -79,8 +89,10 @@ jobs:
           MIX_ENV: test
           DB_HOST: localhost
 
-      - uses: actions/upload-artifact@v2
+      - name: Archieve test artifacts
+        uses: actions/upload-artifact@v2
         if: ${{ failure() }}
         with:
           name: wallaby_screenshots
           path: tmp/wallaby_screenshots/
+          retention-days: 5
