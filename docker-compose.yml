@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  build:
+    build:
+      context: .
+      cache_from:
+        - gscraper_web-build
+      target: build
+    image: gscraper_web-build
+
+  app:
+    build:
+      context: .
+      cache_from:
+        - gscraper_web-build
+        - gscraper_web
+      target: app
+    image: gscraper_web
