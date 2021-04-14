@@ -1,9 +1,9 @@
-/* This file is for your main application css. */
+// This file is for your main application css. //
 // Variables
 @import 'variables';
 
 // Dependencies
-@import "~bootstrap/scss/bootstrap";
+@import 'bootstrap';
 
 // Functions
 @import 'functions/sizing';
@@ -11,11 +11,18 @@
 // Mixins
 
 // Base
+@import 'base/form';
+@import 'base/button';
+@import 'base/typography';
 
 // Layouts
 @import 'layouts/default';
 
 // Components
 @import 'components/app-header';
+@import 'components/app-main';
+@import 'components/card-auth';
+@import 'components/form-auth';
 
 // Screens
+@import 'screens/registration';

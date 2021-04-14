@@ -1,0 +1,17 @@
+.btn {
+  &--primary {
+    @extend .btn-primary;
+  }
+
+  &--secondary {
+    @extend .btn-secondary;
+  }
+
+  &--light {
+    @extend .btn-light;
+  }
+
+  &--danger {
+    @extend .btn-danger;
+  }
+}

@@ -1,5 +1,84 @@
+$app-header-height: 3.75rem;
 
+// Font Size
+$font-size: (
+  xxs: .625rem,  // 10px
+  xs: .75rem,    // 12px
+  sm: .875rem,   // 14px
+  md: 1rem,       // 16px
+  lg: 1.125rem,   // 18px
+  xl: 1.25rem,    // 20px
+  xxl: 1.375rem,  // 22px
+  xxxl: 1.5rem,   // 24px
+);
+
+// Font Weight
+$font-weight: (
+  regular: 400,
+  medium: 500,
+  semi-bold: 600,
+  bold: 700
+);
+
+// Typography
+$font-family-inter: Inter, sans-serif;
 
 ////////////////////////////////
 // Custom Bootstrap variables //
 ////////////////////////////////
+
+// Grays
+$gray-100: #f7fafc;
+$gray-200: #edf2f7;
+$gray-300: #e2e8f0;
+$gray-500: #a0aec0;
+$gray-600: #718096;
+$gray-700: #4a5568;
+$gray-800: #2d3748;
+$gray-900: #1a202c;
+
+// Blue
+$blue-100: #c9e5fc;
+$blue-200: #95c8f9;
+$blue-300: #5fa1ed;
+$blue-400: #377edc;
+$blue-500: #004dc6;
+$blue-600: #003baa;
+$blue-700: #002c8e;
+$blue-800: #001f72;
+$blue-900: #00155f;
+
+// Green
+$green-100: #dcfcd8;
+$green-200: #b4f9b1;
+$green-300: #5dea7e;
+$green-400: #35d56b;
+$green-500: #00ba51;
+$green-600: #009f55;
+$green-700: #1c8d4e;
+$green-800: #00594a;
+$green-900: #00594a;
+
+// Red
+$red-100: #fcdecd;
+$red-200: #f9b59d;
+$red-300: #ef826b;
+$red-400: #e05245;
+$red-500: #cc1010;
+$red-600: #af0b19;
+$red-700: #920820;
+$red-800: #760522;
+$red-900: #610323;
+
+// Theme
+$primary: $blue-500;
+$secondary: $gray-500;
+$light: $gray-200;
+$success: $green-100;
+$danger: $red-500;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-size-base: map-get($font-size, 'md'); //16px
+$font-family-base: $font-family-inter;
