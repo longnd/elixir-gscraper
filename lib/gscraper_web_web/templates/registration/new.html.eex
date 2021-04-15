@@ -1,6 +1,6 @@
 <div class="card card-auth">
   <div class="card-auth__title">
-    <h4>Sign up</h4>
+    <h4><%= dgettext "auth", "Sign up" %></h4>
   </div>
   <form class="form form-auth">
     <div class="form__group required">
@@ -18,10 +18,10 @@
       <input class="form__control" required="required" autofocus="autofocus" type="password" name="password_confirm">
       <div class="form__feedback"></div>
     </div>
-    <button class="btn btn--primary" type="submit">Sign up</button>
+    <button class="btn btn--primary" type="submit"><%= dgettext "auth", "Sign up" %></button>
     <div class="form-auth__footer">
-      <span>Already had an account?</span>
-      <a href="/">Sign in</a>
+      <span><%= dgettext "auth", "Already had an account?" %></span>
+      <a href="/"><%= dgettext "auth", "Sign in" %></a>
     </div>
   </form>
 </div>
