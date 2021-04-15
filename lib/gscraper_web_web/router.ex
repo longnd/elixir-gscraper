@@ -21,7 +21,7 @@ defmodule GscraperWebWeb.Router do
 
     get "/", PageController, :index
 
-    resources "/registrations", RegistrationController, only: [:new, :create]
+    get "/signup", RegistrationController, :new
   end
 
   # Other scopes may use custom stacks.
