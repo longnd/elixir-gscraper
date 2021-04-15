@@ -1,9 +1,14 @@
 defmodule GscraperWebWeb.RegistrationControllerTest do
   use GscraperWebWeb.ConnCase
 
-  test "new/2 renders the new template", %{conn: conn} do
-    conn = get(conn, Routes.registration_path(conn, :new))
+  describe "GET /signup" do
+    test "renders the registration page", %{conn: conn} do
+      conn = get(conn, Routes.registration_path(conn, :new))
+      response = html_response(conn, 200)
 
-    assert html_response(conn, 200) =~ gettext("Sign up")
+      assert response =~ "Sign up"
+      assert response =~ "Already had an account"
+      assert response =~ "Sign in"
+    end
   end
 end
