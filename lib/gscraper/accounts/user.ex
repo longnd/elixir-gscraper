@@ -28,7 +28,13 @@ defmodule Gscraper.Accounts.User do
     |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number")
     |> validate_format(:password, ~r/[A-Z]+/, message: "Password must contain an upper-case letter")
     |> validate_format(:password, ~r/[a-z]+/, message: "Password must contain a lower-case letter")
-    |> validate_format(:password, ~r/[#\!\?&@\$%^&*\(\)]+/, message: "Password must contain a special character")
     |> validate_confirmation(:password, required: true)
+    |> put_password_hash
   end
+
+  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, encrypted_password: Argon2.hash_pwd_salt(password))
+  end
+
+  defp put_password_hash(changeset), do: changeset
 end

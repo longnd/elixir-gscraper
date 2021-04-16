@@ -1,27 +1,30 @@
 <div class="card card-auth">
   <div class="card-auth__title">
-    <h4><%= dgettext "auth", "Sign up" %></h4>
+    <h4><%= dgettext("auth", "Sign up") %></h4>
   </div>
-  <form class="form form-auth">
+
+  <%= form_for @changeset, Routes.registration_path(@conn, :create), [class: "form form-auth"], fn f -> %>
     <div class="form__group required">
-      <label for="username" class="required">Username</label>
-      <input class="form__control" required="required" autofocus="autofocus" type="text" name="email">
-      <div class="form__feedback"></div>
+      <%= label f, :username %>
+      <%= text_input f, :username, required: true, autofocus: true, class: "form__control" %>
+      <%= error_tag f, :username %>
     </div>
     <div class="form__group required">
-      <label for="password" class="required">Password</label>
-      <input class="form__control" required="required" type="password" name="password">
-      <div class="form__feedback"></div>
+      <%= label f, :password %>
+      <%= password_input f, :password, required: true, class: "form__control" %>
+      <%= error_tag f, :password %>
     </div>
     <div class="form__group required">
-      <label for="password_confirm" class="required">Password confirmation</label>
-      <input class="form__control" required="required" type="password" name="password_confirm">
-      <div class="form__feedback"></div>
+      <%= label f, :password_confirmation %>
+      <%= password_input f, :password_confirmation, required: true, class: "form__control" %>
+      <%= error_tag f, :password_confirmation %>
     </div>
-    <button class="btn btn--primary" type="submit"><%= dgettext "auth", "Sign up" %></button>
+
+    <%= submit dgettext("auth", "Sign up"), class: "btn btn--primary" %>
+
     <div class="form-auth__footer">
-      <span><%= dgettext "auth", "Already had an account?" %></span>
-      <a href="/"><%= dgettext "auth", "Sign in" %></a>
+      <span><%= dgettext("auth", "Already had an account?") %></span>
+      <a href="/"><%= dgettext("auth", "Sign in") %></a>
     </div>
-  </form>
+  <% end %>
 </div>

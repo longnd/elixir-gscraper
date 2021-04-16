@@ -38,11 +38,13 @@ $input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, .25);
     }
   }
 
-  &__feedback {
+  .invalid-feedback {
+    @extend .invalid-feedback;
     color: $red-500;
     font-size: rem(14px);
     line-height: rem(21px);
     margin-top: rem(10px);
+    display: block;
 
     // Empty feedback collapse automatically
     &:empty {
