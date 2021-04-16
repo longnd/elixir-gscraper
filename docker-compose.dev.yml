@@ -3,9 +3,9 @@ version: "3.8"
 services:
   db:
     image: postgres:12.3
-    container_name: gscraper_web_db
+    container_name: gscraper_db
     environment:
       - POSTGRES_HOST_AUTH_METHOD=trust
-      - POSTGRES_DB=gscraper_web_dev
+      - POSTGRES_DB=gscraper_dev
     ports:
       - "5432:5432"

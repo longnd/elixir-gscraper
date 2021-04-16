@@ -1,4 +1,4 @@
-defmodule GscraperWebWeb.ErrorHelpers do
+defmodule GscraperWeb.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -39,9 +39,9 @@ defmodule GscraperWebWeb.ErrorHelpers do
     # should be written to the errors.po file. The :count option is
     # set by Ecto and indicates we should also apply plural rules.
     if count = opts[:count] do
-      Gettext.dngettext(GscraperWebWeb.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(GscraperWeb.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(GscraperWebWeb.Gettext, "errors", msg, opts)
+      Gettext.dgettext(GscraperWeb.Gettext, "errors", msg, opts)
     end
   end
 end

@@ -1,11 +1,11 @@
-defmodule GscraperWebWeb.Gettext do
+defmodule GscraperWeb.Gettext do
   @moduledoc """
   A module providing Internationalization with a gettext-based API.
 
   By using [Gettext](https://hexdocs.pm/gettext),
   your module gains a set of macros for translations, for example:
 
-      import GscraperWebWeb.Gettext
+      import GscraperWeb.Gettext
 
       # Simple translation
       gettext("Here is the string to translate")
@@ -20,5 +20,5 @@ defmodule GscraperWebWeb.Gettext do
 
   See the [Gettext Docs](https://hexdocs.pm/gettext) for detailed usage.
   """
-  use Gettext, otp_app: :gscraper_web
+  use Gettext, otp_app: :gscraper
 end

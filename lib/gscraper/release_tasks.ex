@@ -1,5 +1,5 @@
-defmodule GscraperWeb.ReleaseTasks do
-  @app :gscraper_web
+defmodule Gscraper.ReleaseTasks do
+  @app :gscraper
 
   def migrate do
     load_app()

@@ -12,6 +12,6 @@ msgstr ""
 "Plural-Forms: nplurals=2\n"
 
 #, elixir-format
-#: lib/gscraper_web_web/templates/layout/app.html.eex:7
+#: lib/gscraper_web/templates/layout/app.html.eex:7
 msgid "Elixir Google Scraper"
 msgstr ""

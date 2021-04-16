@@ -1,7 +1,7 @@
-defmodule GscraperWebWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :gscraper_web
+defmodule GscraperWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :gscraper
 
-  if Application.get_env(:gscraper_web, :sql_sandbox) do
+  if Application.get_env(:gscraper, :sql_sandbox) do
     plug Phoenix.Ecto.SQL.Sandbox
   end
 
@@ -10,11 +10,11 @@ defmodule GscraperWebWeb.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_gscraper_web_key",
+    key: "_gscraper_key",
     signing_salt: "ROPV+bbN"
   ]
 
-  socket "/socket", GscraperWebWeb.UserSocket,
+  socket "/socket", GscraperWeb.UserSocket,
     websocket: true,
     longpoll: false
 
@@ -26,7 +26,7 @@ defmodule GscraperWebWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :gscraper_web,
+    from: :gscraper,
     gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
@@ -36,7 +36,7 @@ defmodule GscraperWebWeb.Endpoint do
     socket "/phoenix/live_reload/socket", Phoenix.LiveReloader.Socket
     plug Phoenix.LiveReloader
     plug Phoenix.CodeReloader
-    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :gscraper_web
+    plug Phoenix.Ecto.CheckRepoStatus, otp_app: :gscraper
   end
 
   plug Phoenix.LiveDashboard.RequestLogger,
@@ -54,5 +54,5 @@ defmodule GscraperWebWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug GscraperWebWeb.Router
+  plug GscraperWeb.Router
 end

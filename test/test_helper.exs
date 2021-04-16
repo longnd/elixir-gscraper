@@ -7,6 +7,6 @@ Code.put_compiler_option(:warnings_as_errors, true)
 {:ok, _} = Application.ensure_all_started(:wallaby)
 
 ExUnit.start()
-Ecto.Adapters.SQL.Sandbox.mode(GscraperWeb.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Gscraper.Repo, :manual)
 
-Application.put_env(:wallaby, :base_url, GscraperWebWeb.Endpoint.url())
+Application.put_env(:wallaby, :base_url, GscraperWeb.Endpoint.url())

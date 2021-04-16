@@ -1,5 +1,5 @@
-defmodule GscraperWebWeb.ErrorView do
-  use GscraperWebWeb, :view
+defmodule GscraperWeb.ErrorView do
+  use GscraperWeb, :view
 
   # If you want to customize a particular status code
   # for a certain format, you may uncomment below.

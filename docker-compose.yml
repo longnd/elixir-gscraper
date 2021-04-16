@@ -5,15 +5,15 @@ services:
     build:
       context: .
       cache_from:
-        - gscraper_web-build
+        - gscraper-build
       target: build
-    image: gscraper_web-build
+    image: gscraper-build
 
   app:
     build:
       context: .
       cache_from:
-        - gscraper_web-build
-        - gscraper_web
+        - gscraper-build
+        - gscraper
       target: app
-    image: gscraper_web
+    image: gscraper

@@ -1,5 +1,5 @@
-defmodule GscraperWebWeb.PageControllerTest do
-  use GscraperWebWeb.ConnCase
+defmodule GscraperWeb.PageControllerTest do
+  use GscraperWeb.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get(conn, "/")

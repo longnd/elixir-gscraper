@@ -1,4 +1,4 @@
-defmodule GscraperWebWeb.Telemetry do
+defmodule GscraperWeb.Telemetry do
   use Supervisor
   import Telemetry.Metrics
 
@@ -31,11 +31,11 @@ defmodule GscraperWebWeb.Telemetry do
       ),
 
       # Database Metrics
-      summary("gscraper_web.repo.query.total_time", unit: {:native, :millisecond}),
-      summary("gscraper_web.repo.query.decode_time", unit: {:native, :millisecond}),
-      summary("gscraper_web.repo.query.query_time", unit: {:native, :millisecond}),
-      summary("gscraper_web.repo.query.queue_time", unit: {:native, :millisecond}),
-      summary("gscraper_web.repo.query.idle_time", unit: {:native, :millisecond}),
+      summary("gscraper.repo.query.total_time", unit: {:native, :millisecond}),
+      summary("gscraper.repo.query.decode_time", unit: {:native, :millisecond}),
+      summary("gscraper.repo.query.query_time", unit: {:native, :millisecond}),
+      summary("gscraper.repo.query.queue_time", unit: {:native, :millisecond}),
+      summary("gscraper.repo.query.idle_time", unit: {:native, :millisecond}),
 
       # VM Metrics
       summary("vm.memory.total", unit: {:byte, :kilobyte}),
@@ -49,7 +49,7 @@ defmodule GscraperWebWeb.Telemetry do
     [
       # A module, function and arguments to be invoked periodically.
       # This function must call :telemetry.execute/3 and a metric must be added above.
-      # {GscraperWebWeb, :count_users, []}
+      # {GscraperWeb, :count_users, []}
     ]
   end
 end

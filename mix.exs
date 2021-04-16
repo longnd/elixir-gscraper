@@ -1,9 +1,9 @@
-defmodule GscraperWeb.MixProject do
+defmodule Gscraper.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :gscraper_web,
+      app: :gscraper,
       version: "0.1.0",
       elixir: "~> 1.11.3",
       elixirc_paths: elixirc_paths(Mix.env()),
@@ -26,7 +26,7 @@ defmodule GscraperWeb.MixProject do
   # Type `mix help compile.app` for more information.
   def application do
     [
-      mod: {GscraperWeb.Application, []},
+      mod: {Gscraper.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end

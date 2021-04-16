@@ -1,5 +1,5 @@
-defmodule GscraperWebWeb.Router do
-  use GscraperWebWeb, :router
+defmodule GscraperWeb.Router do
+  use GscraperWeb, :router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -16,7 +16,7 @@ defmodule GscraperWebWeb.Router do
 
   # coveralls-ignore-stop
 
-  scope "/", GscraperWebWeb do
+  scope "/", GscraperWeb do
     pipe_through :browser
 
     get "/", PageController, :index
@@ -25,7 +25,7 @@ defmodule GscraperWebWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", GscraperWebWeb do
+  # scope "/api", GscraperWeb do
   #   pipe_through :api
   # end
 
@@ -42,7 +42,7 @@ defmodule GscraperWebWeb.Router do
     scope "/" do
       pipe_through :browser
       # coveralls-ignore-start
-      live_dashboard "/dashboard", metrics: GscraperWebWeb.Telemetry
+      live_dashboard "/dashboard", metrics: GscraperWeb.Telemetry
       # coveralls-ignore-stop
     end
   end

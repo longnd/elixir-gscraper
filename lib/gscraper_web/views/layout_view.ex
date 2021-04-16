@@ -1,5 +1,5 @@
-defmodule GscraperWebWeb.LayoutView do
-  use GscraperWebWeb, :view
+defmodule GscraperWeb.LayoutView do
+  use GscraperWeb, :view
 
   def body_class_name(conn) do
     "#{module_class_name(conn)} #{action_name(conn)}"

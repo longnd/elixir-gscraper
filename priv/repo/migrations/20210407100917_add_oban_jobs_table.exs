@@ -1,4 +1,4 @@
-defmodule GscraperWeb.Repo.Migrations.AddObanJobsTable do
+defmodule Gscraper.Repo.Migrations.AddObanJobsTable do
   use Ecto.Migration
 
   def up do

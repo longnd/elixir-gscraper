@@ -1,12 +1,12 @@
 {
   "skip_files": [
     "lib/mix",
-    "lib/gscraper_web/application.ex",
-    "lib/gscraper_web/release_tasks.ex",
-    "lib/gscraper_web_web.ex",
-    "lib/gscraper_web_mail.ex",
-    "lib/gscraper_web_web/endpoint.ex",
-    "lib/gscraper_web_web/views/error_helpers.ex",
+    "lib/gscraper/application.ex",
+    "lib/gscraper/release_tasks.ex",
+    "lib/gscraper_web.ex",
+    "lib/gscraper_mail.ex",
+    "lib/gscraper_web/endpoint.ex",
+    "lib/gscraper_web/views/error_helpers.ex",
     "test/support"
   ],
   "coverage_options": {
