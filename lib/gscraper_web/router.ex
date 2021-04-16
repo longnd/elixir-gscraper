@@ -19,7 +19,7 @@ defmodule GscraperWeb.Router do
   scope "/", GscraperWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", DashboardController, :index
 
     get "/signup", RegistrationController, :new
     post "/signup", RegistrationController, :create
