@@ -13,8 +13,8 @@ defmodule GscraperWeb.RegistrationControllerTest do
   end
 
   describe "POST /signup" do
-    test "redirects to the dashboard when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.registration_path(conn, :create), user: @create_attrs)
+    test "given valid attributes, it redirects to the dashboard", %{conn: conn} do
+      conn = post(conn, Routes.registration_path(conn, :create), user: params_for(:user))
 
       assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
 
@@ -22,9 +22,10 @@ defmodule GscraperWeb.RegistrationControllerTest do
       assert html_response(conn, 200) =~ "User created successfully."
     end
 
-    test "renders errors when data is invalid", %{conn: conn} do
-      conn = post(conn, Routes.user_path(conn, :create), user: @invalid_attrs)
-      assert html_response(conn, 200) =~ "New User"
+    test "given invalid attributes, it renders errors", %{conn: conn} do
+      invalid_params = params_for(:user, password: nil)
+      conn = post(conn, Routes.registration_path(conn, :create), user: invalid_params)
+      assert html_response(conn, 200) =~ "Something went wrong! Please check the errors for more details"
     end
   end
 end

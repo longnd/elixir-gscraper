@@ -17,7 +17,9 @@ defmodule GscraperWeb.RegistrationController do
         |> redirect(to: Routes.dashboard_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->
-        render(conn, "new.html", changeset: changeset)
+        conn
+        |> put_flash(:error, "Something went wrong! Please check the errors for more details.")
+        |> render("new.html", changeset: changeset)
     end
   end
 end

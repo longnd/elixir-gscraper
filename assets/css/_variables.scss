@@ -73,12 +73,16 @@ $red-900: #610323;
 // Theme
 $primary: $blue-500;
 $secondary: $gray-500;
-$light: $gray-200;
 $success: $green-100;
 $danger: $red-500;
+$light: $gray-200;
 
 // Typography
 //
 // Font, line-height, and color for body text, headings, and more.
 $font-size-base: map-get($font-size, 'md'); //16px
 $font-family-base: $font-family-inter;
+
+
+// Alert
+$alert-border-width: 0;
