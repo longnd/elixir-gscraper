@@ -8,8 +8,8 @@
     "build:dev": "webpack --mode development"
   },
   "dependencies": {
-    "bootstrap": "^4.6.0",
-    "bootstrap.native": "^3.0.14-f",
+    "bootstrap": "4.6.0",
+    "bootstrap.native": "3.0.14-f",
     "core-js": "^3.7.0",
     "phoenix": "file:../deps/phoenix",
     "phoenix_html": "file:../deps/phoenix_html"
