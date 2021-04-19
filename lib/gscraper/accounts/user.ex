@@ -2,16 +2,19 @@ defmodule Gscraper.Accounts.User do
   use Ecto.Schema
   import Ecto.Changeset
 
+  alias Gscraper.Accounts.Password
+
   schema "users" do
     field :username, :string
     field :encrypted_password, :string
 
     field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
 
     timestamps()
   end
 
-  @fields ~w(username password)a
+  @fields ~w(username password password_confirmation)a
 
   @doc false
   def changeset(user, attrs) do
@@ -28,12 +31,12 @@ defmodule Gscraper.Accounts.User do
     |> validate_format(:password, ~r/[0-9]+/, message: "Password must contain a number")
     |> validate_format(:password, ~r/[A-Z]+/, message: "Password must contain an upper-case letter")
     |> validate_format(:password, ~r/[a-z]+/, message: "Password must contain a lower-case letter")
-    |> validate_confirmation(:password, required: true)
+    |> validate_confirmation(:password)
     |> put_password_hash
   end
 
   defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    change(changeset, encrypted_password: Argon2.hash_pwd_salt(password))
+    change(changeset, encrypted_password: Password.hash(password))
   end
 
   defp put_password_hash(changeset), do: changeset
