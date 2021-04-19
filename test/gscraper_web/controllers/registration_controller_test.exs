@@ -14,7 +14,7 @@ defmodule GscraperWeb.RegistrationControllerTest do
 
   describe "POST /signup" do
     test "redirects to the dashboard when data is valid", %{conn: conn} do
-      conn = post(conn, Routes.user_path(conn, :create), user: @create_attrs)
+      conn = post(conn, Routes.registration_path(conn, :create), user: @create_attrs)
 
       assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
 
