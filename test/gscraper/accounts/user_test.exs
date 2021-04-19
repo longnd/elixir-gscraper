@@ -53,7 +53,9 @@ defmodule Gscraper.Accounts.UserTest do
     end
 
     test "password confirmation must match with password" do
-      invalid_params = params_for(:user, password: "p@ssw0rD", password_confirmation: "another_p@ssw0rD")
+      invalid_params =
+        params_for(:user, password: "p@ssw0rD", password_confirmation: "another_p@ssw0rD")
+
       changeset = %User{} |> User.changeset(invalid_params)
 
       refute changeset.valid?

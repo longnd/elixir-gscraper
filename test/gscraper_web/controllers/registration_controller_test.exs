@@ -25,7 +25,9 @@ defmodule GscraperWeb.RegistrationControllerTest do
     test "given invalid attributes, it renders errors", %{conn: conn} do
       invalid_params = params_for(:user, password: nil)
       conn = post(conn, Routes.registration_path(conn, :create), user: invalid_params)
-      assert html_response(conn, 200) =~ "Something went wrong! Please check the errors for more details"
+
+      assert html_response(conn, 200) =~
+               "Something went wrong! Please check the errors for more details"
     end
   end
 end
