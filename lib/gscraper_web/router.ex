@@ -23,6 +23,8 @@ defmodule GscraperWeb.Router do
 
     get "/signup", RegistrationController, :new
     post "/signup", RegistrationController, :create
+
+    get "/signin", SessionController, :new
   end
 
   # Other scopes may use custom stacks.

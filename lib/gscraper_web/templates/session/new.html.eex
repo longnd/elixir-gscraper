@@ -1,0 +1,25 @@
+<div class="card card-auth">
+  <div class="card-auth__title">
+    <h4><%= dgettext("auth", "Sign in") %></h4>
+  </div>
+
+  <%= form_for @changeset, Routes.session_path(@conn, :new), [class: "form form-auth"], fn f -> %>
+    <div class="form__group required">
+      <%= label f, :username %>
+      <%= text_input f, :username, required: true, autofocus: true, class: "form__control" %>
+      <%= error_tag f, :username %>
+    </div>
+    <div class="form__group required">
+      <%= label f, :password %>
+      <%= password_input f, :password, required: true, class: "form__control" %>
+      <%= error_tag f, :password %>
+    </div>
+
+    <%= submit dgettext("auth", "Login"), class: "btn btn--primary" %>
+
+    <div class="form-auth__footer">
+      <span><%= dgettext("auth", "Don't have an account?") %></span>
+      <a href="<%= Routes.registration_path(@conn, :new) %>"><%= dgettext("auth", "Sign up") %></a>
+    </div>
+  <% end %>
+</div>
