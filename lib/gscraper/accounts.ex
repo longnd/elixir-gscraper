@@ -4,8 +4,8 @@ defmodule Gscraper.Accounts do
   """
 
   import Ecto.Query, warn: false
-  alias Gscraper.Repo
   alias Gscraper.Accounts.User
+  alias Gscraper.Repo
 
   @doc """
   Creates a user.
