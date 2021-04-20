@@ -1,4 +1,4 @@
-defmodule GscraperWeb.DataCase do
+defmodule Gscraper.DataCase do
   @moduledoc """
   This module defines the setup for tests requiring
   access to the application's data layer.
@@ -10,7 +10,7 @@ defmodule GscraperWeb.DataCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use GscraperWeb.DataCase, async: true`, although
+  by setting `use Gscraper.DataCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -20,21 +20,21 @@ defmodule GscraperWeb.DataCase do
 
   using do
     quote do
-      alias GscraperWeb.Repo
+      alias Gscraper.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import GscraperWeb.DataCase
-      import GscraperWeb.Factory
+      import Gscraper.DataCase
+      import Gscraper.Factory
     end
   end
 
   setup tags do
-    :ok = Sandbox.checkout(GscraperWeb.Repo)
+    :ok = Sandbox.checkout(Gscraper.Repo)
 
     unless tags[:async] do
-      Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
+      Sandbox.mode(Gscraper.Repo, {:shared, self()})
     end
 
     :ok

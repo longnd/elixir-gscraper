@@ -12,7 +12,7 @@ if config_env() == :prod do
       For example: ecto://USER:PASS@HOST/DATABASE
       """
 
-  config :gscraper_web, GscraperWeb.Repo,
+  config :gscraper, Gscraper.Repo,
     ssl: true,
     url: database_url,
     pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10")
@@ -24,7 +24,7 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  config :gscraper_web, GscraperWebWeb.Endpoint,
+  config :gscraper, GscraperWeb.Endpoint,
     http: [
       port: String.to_integer(System.get_env("PORT") || "4000"),
       transport_options: [socket_opts: [:inet6]]

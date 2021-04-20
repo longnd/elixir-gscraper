@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html class="layout-default" lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title><%= dgettext "shared", "Elixir Google Scraper" %></title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <script defer type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </head>
+
+  <body class="<%= body_class_name(@conn) %>">
+    <header class="app-header">
+      <a class="app-header__brand" href="/">
+        <img class="app-header__logo" src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Logo"/>
+      </a>
+    </header>
+
+    <main role="main" class="app-main">
+      <div class="app-main__container">
+        <%= @inner_content %>
+      </div>
+    </main>
+
+  </body>
+</html>

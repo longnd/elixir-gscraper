@@ -1,36 +1,28 @@
-/* This file is for your main application css. */
-@import "./phoenix.css";
+// This file is for your main application css. //
+// Variables
+@import 'variables';
 
-/* Alerts and form errors */
-.alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
-}
-.alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
-}
-.alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
-}
-.alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
-}
-.alert p {
-  margin-bottom: 0;
-}
-.alert:empty {
-  display: none;
-}
-.invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
-}
+// Dependencies
+@import 'bootstrap';
+
+// Functions
+@import 'functions/sizing';
+
+// Mixins
+
+// Base
+@import 'base/form';
+@import 'base/button';
+@import 'base/typography';
+
+// Layouts
+@import 'layouts/default';
+
+// Components
+@import 'components/app-header';
+@import 'components/app-main';
+@import 'components/card-auth';
+@import 'components/form-auth';
+
+// Screens
+@import 'screens/registration';

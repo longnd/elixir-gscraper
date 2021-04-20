@@ -1,10 +1,10 @@
 use Mix.Config
 
 # Configure your database
-config :gscraper_web, GscraperWeb.Repo,
+config :gscraper, Gscraper.Repo,
   username: "postgres",
   password: "postgres",
-  database: "gscraper_web_dev",
+  database: "gscraper_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
@@ -15,7 +15,7 @@ config :gscraper_web, GscraperWeb.Repo,
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :gscraper_web, GscraperWebWeb.Endpoint,
+config :gscraper, GscraperWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +55,13 @@ config :gscraper_web, GscraperWebWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :gscraper_web, GscraperWebWeb.Endpoint,
+config :gscraper, GscraperWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/gscraper_web_web/(live|views)/.*(ex)$",
-      ~r"lib/gscraper_web_web/templates/.*(eex)$"
+      ~r"lib/gscraper_web/(live|views)/.*(ex)$",
+      ~r"lib/gscraper_web/templates/.*(eex)$"
     ]
   ]
 

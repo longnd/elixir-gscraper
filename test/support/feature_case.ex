@@ -1,13 +1,13 @@
-defmodule GscraperWebWeb.FeatureCase do
+defmodule GscraperWeb.FeatureCase do
   use ExUnit.CaseTemplate
 
   using do
     quote do
       use Wallaby.Feature
 
-      import GscraperWeb.Factory
+      import Gscraper.Factory
 
-      alias GscraperWebWeb.Router.Helpers, as: Routes
+      alias GscraperWeb.Router.Helpers, as: Routes
     end
   end
 end

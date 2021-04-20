@@ -43,7 +43,7 @@ RUN addgroup -S app_group && \
     adduser -s /bin/sh -G app_group -D app_user && \
     chown app_user:app_group /app
 
-COPY --from=build --chown=app_user:app_group /app/_build/prod/rel/gscraper_web ./
+COPY --from=build --chown=app_user:app_group /app/_build/prod/rel/gscraper ./
 COPY bin/start.sh ./bin/start.sh
 
 ENV HOME=/app

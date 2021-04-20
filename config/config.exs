@@ -7,15 +7,15 @@
 # General application configuration
 use Mix.Config
 
-config :gscraper_web,
-  ecto_repos: [GscraperWeb.Repo]
+config :gscraper,
+  ecto_repos: [Gscraper.Repo]
 
 # Configures the endpoint
-config :gscraper_web, GscraperWebWeb.Endpoint,
+config :gscraper, GscraperWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "eD7Se7buNmNTWKhQrm2BFP3zlasjrQtg85ORlQ0PKqxtWq9FQetj8vOp1GIOZnyj",
-  render_errors: [view: GscraperWebWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: GscraperWeb.PubSub,
+  render_errors: [view: GscraperWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Gscraper.PubSub,
   live_view: [signing_salt: "/rYmGmhG"]
 
 # Configures Elixir's Logger
@@ -26,8 +26,8 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
-config :gscraper_web, Oban,
-  repo: GscraperWeb.Repo,
+config :gscraper, Oban,
+  repo: Gscraper.Repo,
   plugins: [Oban.Plugins.Pruner],
   queues: [default: 10]
 

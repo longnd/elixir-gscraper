@@ -1,4 +1,4 @@
-defmodule GscraperWebWeb.ChannelCase do
+defmodule GscraperWeb.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -11,7 +11,7 @@ defmodule GscraperWebWeb.ChannelCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use GscraperWebWeb.ChannelCase, async: true`, although
+  by setting `use GscraperWeb.ChannelCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -23,19 +23,19 @@ defmodule GscraperWebWeb.ChannelCase do
     quote do
       # Import conveniences for testing with channels
       import Phoenix.ChannelTest
-      import GscraperWebWeb.ChannelCase
-      import GscraperWeb.Factory
+      import GscraperWeb.ChannelCase
+      import Gscraper.Factory
 
       # The default endpoint for testing
-      @endpoint GscraperWebWeb.Endpoint
+      @endpoint GscraperWeb.Endpoint
     end
   end
 
   setup tags do
-    :ok = Sandbox.checkout(GscraperWeb.Repo)
+    :ok = Sandbox.checkout(Gscraper.Repo)
 
     unless tags[:async] do
-      Sandbox.mode(GscraperWeb.Repo, {:shared, self()})
+      Sandbox.mode(Gscraper.Repo, {:shared, self()})
     end
 
     :ok
