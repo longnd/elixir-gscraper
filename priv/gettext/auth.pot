@@ -11,17 +11,32 @@ msgid ""
 msgstr ""
 
 #, elixir-format
-#: lib/gscraper_web/templates/registration/new.html.eex:23
+#: lib/gscraper_web/templates/registration/new.html.eex:26
 msgid "Already had an account?"
 msgstr ""
 
 #, elixir-format
-#: lib/gscraper_web/templates/registration/new.html.eex:24
+#: lib/gscraper_web/templates/registration/new.html.eex:27
 msgid "Sign in"
 msgstr ""
 
 #, elixir-format
 #: lib/gscraper_web/templates/registration/new.html.eex:3
-#: lib/gscraper_web/templates/registration/new.html.eex:21
+#: lib/gscraper_web/templates/registration/new.html.eex:23
 msgid "Sign up"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:13
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:18
+msgid "Password confirmation"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:8
+msgid "Username"
 msgstr ""

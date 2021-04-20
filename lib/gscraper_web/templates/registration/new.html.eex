@@ -5,17 +5,17 @@
 
   <%= form_for @changeset, Routes.registration_path(@conn, :create), [class: "form form-auth"], fn f -> %>
     <div class="form__group required">
-      <%= label f, :username %>
+      <%= label f, :username, dgettext("auth", "Username") %>
       <%= text_input f, :username, required: true, autofocus: true, class: "form__control" %>
       <%= error_tag f, :username %>
     </div>
     <div class="form__group required">
-      <%= label f, :password %>
+      <%= label f, :password, dgettext("auth", "Password") %>
       <%= password_input f, :password, required: true, class: "form__control" %>
       <%= error_tag f, :password %>
     </div>
     <div class="form__group required">
-      <%= label f, :password_confirmation %>
+      <%= label f, :password_confirmation, dgettext("auth", "Password confirmation") %>
       <%= password_input f, :password_confirmation, required: true, class: "form__control" %>
       <%= error_tag f, :password_confirmation %>
     </div>
