@@ -41,3 +41,23 @@ msgstr ""
 #: lib/gscraper_web/templates/registration/new.html.eex:8
 msgid "Username"
 msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/controllers/registration_controller.ex:16
+msgid "User created successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:34
+msgid "Password must contain a lower-case letter"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:32
+msgid "Password must contain a number"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:33
+msgid "Password must contain an upper-case letter"
+msgstr ""
