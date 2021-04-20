@@ -15,3 +15,8 @@ msgstr ""
 #: lib/gscraper_web/templates/layout/app.html.eex:7
 msgid "Elixir Google Scraper"
 msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/controllers/registration_controller.ex:21
+msgid "Something went wrong! Please check the errors for more details."
+msgstr ""

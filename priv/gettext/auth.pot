@@ -11,17 +11,52 @@ msgid ""
 msgstr ""
 
 #, elixir-format
-#: lib/gscraper_web/templates/registration/new.html.eex:23
+#: lib/gscraper_web/templates/registration/new.html.eex:26
 msgid "Already had an account?"
 msgstr ""
 
 #, elixir-format
-#: lib/gscraper_web/templates/registration/new.html.eex:24
+#: lib/gscraper_web/templates/registration/new.html.eex:27
 msgid "Sign in"
 msgstr ""
 
 #, elixir-format
 #: lib/gscraper_web/templates/registration/new.html.eex:3
-#: lib/gscraper_web/templates/registration/new.html.eex:21
+#: lib/gscraper_web/templates/registration/new.html.eex:23
 msgid "Sign up"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:13
+msgid "Password"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:18
+msgid "Password confirmation"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/templates/registration/new.html.eex:8
+msgid "Username"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper_web/controllers/registration_controller.ex:16
+msgid "User created successfully."
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:34
+msgid "Password must contain a lower-case letter"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:32
+msgid "Password must contain a number"
+msgstr ""
+
+#, elixir-format
+#: lib/gscraper/accounts/user.ex:33
+msgid "Password must contain an upper-case letter"
 msgstr ""
