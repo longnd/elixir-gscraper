@@ -8,11 +8,12 @@ defmodule Gscraper.Accounts.UserTest do
       changeset = User.changeset(%User{}, %{})
 
       refute changeset.valid?
+
       assert errors_on(changeset) == %{
-        username: ["can't be blank"],
-        password: ["can't be blank"],
-        password_confirmation: ["can't be blank"]
-       }
+               username: ["can't be blank"],
+               password: ["can't be blank"],
+               password_confirmation: ["can't be blank"]
+             }
     end
 
     test "username is unique" do
