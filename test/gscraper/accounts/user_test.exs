@@ -3,7 +3,7 @@ defmodule Gscraper.Accounts.UserTest do
 
   alias Gscraper.Accounts.User
 
-  describe "changeset" do
+  describe "changeset/2" do
     test "username, password and password_confirmation are required" do
       changeset = User.changeset(%User{}, %{})
 
