@@ -23,10 +23,11 @@ defmodule Gscraper.Accounts.User do
     |> cast(attrs, @fields)
     |> validate_required(@fields)
     |> unique_constraint(:username)
-    |> validate_password
+    |> validate_password()
+    |> hash_password()
   end
 
-  def validate_password(changeset) do
+  defp validate_password(changeset) do
     changeset
     |> validate_length(:password, min: 6)
     |> validate_format(:password, ~r/[0-9]+/,
@@ -39,12 +40,11 @@ defmodule Gscraper.Accounts.User do
       message: dgettext("auth", "Password must contain a lower-case letter")
     )
     |> validate_confirmation(:password)
-    |> put_password_hash
   end
 
-  defp put_password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+  defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
     change(changeset, encrypted_password: Password.hash(password))
   end
 
-  defp put_password_hash(changeset), do: changeset
+  defp hash_password(changeset), do: changeset
 end
