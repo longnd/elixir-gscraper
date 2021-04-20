@@ -31,4 +31,15 @@ if config_env() == :prod do
     ],
     secret_key_base: secret_key_base,
     server: true
+
+  guardian_secret_key =
+    System.get_env("GUARDIAN_SECRET_KEY") ||
+      raise """
+      environment variable GUARDIAN_SECRET_KEY is missing.
+      You can generate one by calling: guardian.gen.secret
+      """
+
+  config :gscraper, Gscraper.Accounts.Guardian,
+     issuer: "gscraper",
+     secret_key: guardian_secret_key
 end
