@@ -1,5 +1,5 @@
 defmodule GscraperWeb.HomePage.ViewHomePageTest do
-  use GscraperWeb.FeatureCase
+  use GscraperWeb.FeatureCase, async: true
 
   feature "view home page", %{session: session} do
     visit(session, Routes.dashboard_path(GscraperWeb.Endpoint, :index))

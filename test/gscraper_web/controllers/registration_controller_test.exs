@@ -1,5 +1,5 @@
 defmodule GscraperWeb.RegistrationControllerTest do
-  use GscraperWeb.ConnCase
+  use GscraperWeb.ConnCase, async: true
 
   describe "GET /signup" do
     test "renders the registration form", %{conn: conn} do

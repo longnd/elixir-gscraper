@@ -1,5 +1,5 @@
 defmodule Gscraper.Accounts.UserTest do
-  use Gscraper.DataCase
+  use Gscraper.DataCase, async: true
 
   alias Gscraper.Accounts.User
 
