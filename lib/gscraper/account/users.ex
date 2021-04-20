@@ -23,6 +23,21 @@ defmodule Gscraper.Account.Users do
   def get_user!(id), do: Repo.get!(User, id)
 
   @doc """
+  Gets a single user by username.
+
+  Raises `nil` if the User does not exist.
+
+  ## Examples
+
+      iex> get_user_by_username('johndoe')
+      %User{}
+      iex> get_user_by_username('nonexist')
+      ** nil
+
+  """
+  def get_user_by_username(username), do: Repo.get_by(User, username: username)
+
+  @doc """
   Creates a user.
 
   ## Examples
@@ -51,5 +66,29 @@ defmodule Gscraper.Account.Users do
   """
   def change_user(%User{} = user, attrs \\ %{}) do
     User.changeset(user, attrs)
+  end
+
+  @doc """
+  Authenticate a user with provided credentials.
+
+  ## Examples
+
+      iex> authenticate_user(valid_username, valid_password)
+      {:ok, %User{}}
+
+      iex> authenticate_user(valid_username, invalid_password)
+      {:error, :invalid_credentials}
+
+  """
+  def authenticate_user(username, plain_password) do
+    case get_user_by_username(username) do
+      nil -> {:error, :invalid_credentials}
+      user ->
+        if Password.verify(plain_password, user.password) do
+          {:ok, user}
+        else
+          {:error, :invalid_credentials}
+        end
+    end
   end
 end
