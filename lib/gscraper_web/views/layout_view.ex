@@ -5,7 +5,7 @@ defmodule GscraperWeb.LayoutView do
     "#{module_class_name(conn)} #{action_name(conn)}"
   end
 
-  def module_class_name(conn) do
+  defp module_class_name(conn) do
     conn
     |> controller_module
     |> Phoenix.Naming.resource_name("Controller")
