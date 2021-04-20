@@ -29,9 +29,15 @@ defmodule Gscraper.Accounts.User do
   def validate_password(changeset) do
     changeset
     |> validate_length(:password, min: 6)
-    |> validate_format(:password, ~r/[0-9]+/, message: dgettext("auth", "Password must contain a number"))
-    |> validate_format(:password, ~r/[A-Z]+/, message: dgettext("auth", "Password must contain an upper-case letter"))
-    |> validate_format(:password, ~r/[a-z]+/, message: dgettext("auth", "Password must contain a lower-case letter"))
+    |> validate_format(:password, ~r/[0-9]+/,
+      message: dgettext("auth", "Password must contain a number")
+    )
+    |> validate_format(:password, ~r/[A-Z]+/,
+      message: dgettext("auth", "Password must contain an upper-case letter")
+    )
+    |> validate_format(:password, ~r/[a-z]+/,
+      message: dgettext("auth", "Password must contain a lower-case letter")
+    )
     |> validate_confirmation(:password)
     |> put_password_hash
   end
