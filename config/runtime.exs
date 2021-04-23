@@ -40,6 +40,6 @@ if config_env() == :prod do
       """
 
   config :gscraper, Gscraper.Accounts.Guardian,
-     issuer: "gscraper",
-     secret_key: guardian_secret_key
+    issuer: "gscraper",
+    secret_key: guardian_secret_key
 end

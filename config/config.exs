@@ -32,9 +32,9 @@ config :gscraper, Oban,
   queues: [default: 10]
 
 # Configures Guardian
-config :gscraper, Gscraper.Accounts.Guardian,
-   issuer: "gscraper",
-   secret_key: "6ofVI1NixLwA+JLAc6VE5+OEsqbIojNPoO5KE76wpq6thaiwAwxG2fG7E/Biytac"
+config :gscraper, Gscraper.Accounts.Authentication,
+  issuer: "gscraper",
+  secret_key: "6ofVI1NixLwA+JLAc6VE5+OEsqbIojNPoO5KE76wpq6thaiwAwxG2fG7E/Biytac"
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

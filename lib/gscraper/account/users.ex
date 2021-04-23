@@ -6,6 +6,7 @@ defmodule Gscraper.Account.Users do
   import Ecto.Query, warn: false
   alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
+  alias Gscraper.Accounts.Password
 
   @doc """
   Gets a single user.
@@ -82,9 +83,11 @@ defmodule Gscraper.Account.Users do
   """
   def authenticate_user(username, plain_password) do
     case get_user_by_username(username) do
-      nil -> {:error, :invalid_credentials}
+      nil ->
+        {:error, :invalid_credentials}
+
       user ->
-        if Password.verify(plain_password, user.password) do
+        if Password.verify(plain_password, user.encrypted_password) do
           {:ok, user}
         else
           {:error, :invalid_credentials}

@@ -14,17 +14,37 @@ defmodule GscraperWeb.Router do
     plug :accepts, ["json"]
   end
 
+  # The pipeline is not logging in or authenticating the resource.
+  # It is simply checking for and validating the token in the session and loading the user onto the connection if found.
+  pipeline :guardian do
+    plug Gscraper.Accounts.Pipeline
+  end
+
+  # This pipeline is used to skip a route and redirect to the dashboard page if the user already logged in.
+  pipeline :skip_after_auth do
+    plug GscraperWeb.Plugs.SkipAfterAuth
+  end
+
+  pipeline :ensure_auth do
+    plug Guardian.Plug.EnsureAuthenticated
+  end
+
   # coveralls-ignore-stop
 
   scope "/", GscraperWeb do
-    pipe_through :browser
-
-    get "/", DashboardController, :index
+    pipe_through [:browser, :guardian, :skip_after_auth]
 
     get "/signup", RegistrationController, :new
     post "/signup", RegistrationController, :create
 
-    get "/signin", SessionController, :new
+    get "/login", SessionController, :new
+    post "/login", SessionController, :create
+  end
+
+  scope "/", GscraperWeb do
+    pipe_through [:browser, :guardian, :ensure_auth]
+
+    get "/", DashboardController, :index
   end
 
   # Other scopes may use custom stacks.
