@@ -3,8 +3,8 @@ name: Test
 on: push
 
 env:
-  OTP_VERSION: "23.0.2"
-  ELIXIR_VERSION: "1.11.3"
+  OTP_VERSION: "24.0.5"
+  ELIXIR_VERSION: "1.12.2"
 
 jobs:
   test:

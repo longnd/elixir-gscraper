@@ -5,7 +5,7 @@ defmodule Gscraper.MixProject do
     [
       app: :gscraper,
       version: "0.1.0",
-      elixir: "~> 1.11.3",
+      elixir: "~> 1.12.2",
       elixirc_paths: elixirc_paths(Mix.env()),
       compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
@@ -50,7 +50,7 @@ defmodule Gscraper.MixProject do
       {:faker, "~> 0.16", only: :test},
       {:dialyxir, "~> 1.1.0", [only: [:dev], runtime: false]},
       {:credo, "~> 1.5.5", [only: [:dev, :test], runtime: false]},
-      {:phoenix, "~> 1.5.8"},
+      {:phoenix, "~> 1.5.12"},
       {:phoenix_ecto, "~> 4.1"},
       {:ecto_sql, "~> 3.4"},
       {:postgrex, ">= 0.0.0"},
