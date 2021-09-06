@@ -1,9 +1,9 @@
-defmodule Gscraper.Accounts.User do
+defmodule Gscraper.Account.Schemas.User do
   use Ecto.Schema
   import Ecto.Changeset
   import GscraperWeb.Gettext
 
-  alias Gscraper.Accounts.Password
+  alias Gscraper.Account.Passwords
 
   schema "users" do
     field :username, :string
@@ -43,7 +43,7 @@ defmodule Gscraper.Accounts.User do
   end
 
   defp hash_password(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
-    change(changeset, encrypted_password: Password.hash(password))
+    change(changeset, encrypted_password: Passwords.hash(password))
   end
 
   defp hash_password(changeset), do: changeset

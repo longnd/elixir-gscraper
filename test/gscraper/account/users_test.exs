@@ -1,8 +1,8 @@
 defmodule Gscraper.Account.UsersTest do
   use Gscraper.DataCase, async: true
 
+  alias Gscraper.Account.Schemas.User
   alias Gscraper.Account.Users
-  alias Gscraper.Account.Schema.User
 
   describe "create_user/1" do
     test "creates a user given valid data" do

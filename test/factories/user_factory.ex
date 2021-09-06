@@ -1,5 +1,5 @@
-defmodule Gscraper.Accounts.UserFactory do
-  alias Gscraper.Accounts.User
+defmodule Gscraper.UserFactory do
+  alias Gscraper.Account.Schemas.User
 
   defmacro __using__(_opts) do
     quote do
