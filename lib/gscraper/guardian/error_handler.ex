@@ -1,4 +1,4 @@
-defmodule Gscraper.Account.ErrorHandler do
+defmodule Gscraper.Guardian.ErrorHandler do
   @behaviour Guardian.Plug.ErrorHandler
 
   use GscraperWeb, :controller

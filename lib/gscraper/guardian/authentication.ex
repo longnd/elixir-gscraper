@@ -1,4 +1,4 @@
-defmodule Gscraper.Account.Authentications do
+defmodule Gscraper.Guardian.Authentication do
   @moduledoc """
   Implementation module for Guardian and functions for authentication.
   """

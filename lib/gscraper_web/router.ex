@@ -18,7 +18,7 @@ defmodule GscraperWeb.Router do
   # It is simply checking for and validating the token in the session
   # and loading the user onto the connection if found.
   pipeline :guardian do
-    plug Gscraper.Account.Pipeline
+    plug Gscraper.Guardian.Pipeline
   end
 
   # This pipeline is used to skip a route and redirect to the dashboard page
