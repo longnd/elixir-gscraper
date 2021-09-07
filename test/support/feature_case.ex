@@ -8,6 +8,8 @@ defmodule GscraperWeb.FeatureCase do
       import Gscraper.Factory
 
       alias GscraperWeb.Router.Helpers, as: Routes
+
+      @moduletag :feature_test
     end
   end
 end
