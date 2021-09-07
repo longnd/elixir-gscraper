@@ -7,6 +7,9 @@
     "lib/gscraper_mail.ex",
     "lib/gscraper_web/endpoint.ex",
     "lib/gscraper_web/views/error_helpers.ex",
+    "lib/gscraper/channels/user_socket.ex",
+    "lib/gscraper/helpers/error_helpers.ex",
+    "test/support",
     "test/support"
   ],
   "coverage_options": {
