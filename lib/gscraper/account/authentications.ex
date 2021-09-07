@@ -1,10 +1,10 @@
-defmodule Gscraper.Accounts.Authentication do
+defmodule Gscraper.Account.Authentications do
   @moduledoc """
   Implementation module for Guardian and functions for authentication.
   """
   use Guardian, otp_app: :gscraper
 
-  alias Gscraper.Accounts
+  alias Gscraper.Account.Users
 
   @doc """
     Used to encode the User into the token
@@ -17,7 +17,7 @@ defmodule Gscraper.Accounts.Authentication do
     Used to rehydrate the User from the claims.
   """
   def resource_from_claims(%{"sub" => id}) do
-    user = Accounts.get_user!(id)
+    user = Users.get_user!(id)
     {:ok, user}
   rescue
     Ecto.NoResultsError -> {:error, :resource_not_found}

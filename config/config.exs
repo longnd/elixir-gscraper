@@ -32,7 +32,7 @@ config :gscraper, Oban,
   queues: [default: 10]
 
 # Configures Guardian
-config :gscraper, Gscraper.Accounts.Authentication,
+config :gscraper, Gscraper.Account.Authentications,
   issuer: "gscraper",
   secret_key: "6ofVI1NixLwA+JLAc6VE5+OEsqbIojNPoO5KE76wpq6thaiwAwxG2fG7E/Biytac"
 

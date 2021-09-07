@@ -1,7 +1,7 @@
-defmodule Gscraper.Accounts.ErrorHandler do
-  use GscraperWeb, :controller
-
+defmodule Gscraper.Account.ErrorHandler do
   @behaviour Guardian.Plug.ErrorHandler
+
+  use GscraperWeb, :controller
 
   @impl Guardian.Plug.ErrorHandler
   def auth_error(conn, {_type, _reason}, _opts) do

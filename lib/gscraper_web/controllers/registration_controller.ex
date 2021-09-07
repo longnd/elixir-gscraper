@@ -1,8 +1,8 @@
 defmodule GscraperWeb.RegistrationController do
   use GscraperWeb, :controller
 
+  alias Gscraper.Account.Authentications
   alias Gscraper.Account.Schemas.User
-  alias Gscraper.Account.Authentication
   alias Gscraper.Account.Users
 
   def new(conn, _params) do
@@ -12,9 +12,9 @@ defmodule GscraperWeb.RegistrationController do
 
   def create(conn, %{"user" => user_params}) do
     case Users.create_user(user_params) do
-      {:ok, _user} ->
+      {:ok, user} ->
         conn
-        |> Authentication.log_in(user)
+        |> Authentications.log_in(user)
         |> put_flash(:info, "Welcome, #{user.username}!")
         |> redirect(to: Routes.dashboard_path(conn, :index))
 

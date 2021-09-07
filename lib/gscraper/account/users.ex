@@ -4,9 +4,10 @@ defmodule Gscraper.Account.Users do
   """
 
   import Ecto.Query, warn: false
+
+  alias Gscraper.Account.Passwords
   alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
-  alias Gscraper.Accounts.Password
 
   @doc """
   Gets a single user.
@@ -87,7 +88,7 @@ defmodule Gscraper.Account.Users do
         {:error, :invalid_credentials}
 
       user ->
-        if Password.verify(plain_password, user.encrypted_password) do
+        if Passwords.verify(plain_password, user.encrypted_password) do
           {:ok, user}
         else
           {:error, :invalid_credentials}

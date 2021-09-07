@@ -1,21 +1,24 @@
 defmodule GscraperWeb.SessionController do
   use GscraperWeb, :controller
 
-  alias Gscraper.{Accounts, Accounts.User, Accounts.Authentication}
+  alias Gscraper.Account.Authentications
+  alias Gscraper.Account.Schemas.User
+  alias Gscraper.Account.Users
 
   def new(conn, _params) do
-    changeset = Accounts.change_user(%User{})
+    changeset = Users.change_user(%User{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => %{"username" => username, "password" => password}}) do
-    Accounts.authenticate_user(username, password)
+    username
+    |> Users.authenticate_user(password)
     |> login_reply(conn)
   end
 
   defp login_reply({:ok, user}, conn) do
     conn
-    |> Authentication.log_in(user)
+    |> Authentications.log_in(user)
     |> put_flash(:info, "Welcome back, #{user.username}!")
     |> redirect(to: Routes.dashboard_path(conn, :index))
   end

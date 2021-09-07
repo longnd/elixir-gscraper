@@ -8,13 +8,13 @@ defmodule GscraperWeb.Plugs.SkipAfterAuth do
   import Phoenix.Controller
   import GscraperWeb.Gettext
 
-  alias Gscraper.Accounts.Authentication
+  alias Gscraper.Account.Authentications
   alias GscraperWeb.Router.Helpers, as: Routes
 
   def init(default), do: default
 
   def call(conn, _) do
-    if Authentication.get_current_user(conn) do
+    if Authentications.get_current_user(conn) do
       conn
       |> put_flash(:info, dgettext("auth", "You are already signed in."))
       |> redirect(to: Routes.dashboard_path(conn, :index))

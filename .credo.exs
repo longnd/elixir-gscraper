@@ -87,7 +87,7 @@
         # If you don't want TODO comments to cause `mix credo` to fail, just
         # set this value to 0 (zero).
         #
-        {Credo.Check.Design.TagTODO, [exit_status: 2]},
+        {Credo.Check.Design.TagTODO, [exit_status: 0]},
         {Credo.Check.Design.TagFIXME, []},
 
         #
@@ -103,7 +103,7 @@
         {Credo.Check.Readability.ParenthesesInCondition, []},
         {Credo.Check.Readability.ParenthesesOnZeroArityDefs, []},
         {Credo.Check.Readability.PredicateFunctionNames, []},
-        {Credo.Check.Readability.PreferImplicitTry, []},
+        {Credo.Check.Readability.PreferImplicitTry, false},
         {Credo.Check.Readability.RedundantBlankLines, []},
         {Credo.Check.Readability.Semicolons, []},
         {Credo.Check.Readability.SpaceAfterCommas, []},
@@ -175,7 +175,7 @@
         {Credo.Check.Refactor.ModuleDependencies, false},
         {Credo.Check.Refactor.NegatedIsNil, []},
         {Credo.Check.Refactor.PipeChainStart, []},
-        {Credo.Check.Refactor.VariableRebinding, []},
+        {Credo.Check.Refactor.VariableRebinding, false},
         {Credo.Check.Warning.LeakyEnvironment, []},
         {Credo.Check.Warning.MapGetUnsafePass, []},
         {Credo.Check.Warning.UnsafeToAtom, []}
