@@ -26,6 +26,7 @@ defmodule GscraperWeb.ConnCase do
       import Phoenix.ConnTest
       import GscraperWeb.ConnCase
       import Gscraper.Factory
+      import GscraperWeb.Gettext
 
       alias GscraperWeb.Router.Helpers, as: Routes
 

@@ -20,7 +20,7 @@ defmodule GscraperWeb.RegistrationController do
         conn
         |> put_flash(
           :error,
-          dgettext("shared", "Something went wrong! Please check the errors for more details.")
+          dgettext("error", "Something went wrong! Please check the errors for more details.")
         )
         |> render("new.html", changeset: changeset)
     end

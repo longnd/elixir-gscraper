@@ -27,6 +27,7 @@ defmodule Gscraper.DataCase do
       import Ecto.Query
       import Gscraper.DataCase
       import Gscraper.Factory
+      import GscraperWeb.Gettext
     end
   end
 
