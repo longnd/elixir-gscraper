@@ -17,7 +17,7 @@ defmodule Gscraper.Guardian.Authentication do
     Used to rehydrate the User from the claims.
   """
   def resource_from_claims(%{"sub" => id}) do
-    user = Users.get_user!(id)
+    user = Users.find_by_id!(id)
     {:ok, user}
   rescue
     Ecto.NoResultsError -> {:error, :resource_not_found}

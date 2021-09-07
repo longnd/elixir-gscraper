@@ -6,6 +6,7 @@ defmodule Gscraper.Account.Users do
   import Ecto.Query, warn: false
 
   alias Gscraper.Account.Passwords
+  alias Gscraper.Account.Queries.UserQuery
   alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
 
@@ -16,13 +17,17 @@ defmodule Gscraper.Account.Users do
 
   ## Examples
 
-      iex> get_user!(123)
+      iex> find_by_id!(123)
       %User{}
-      iex> get_user!(456)
+      iex> find_by_id!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_user!(id), do: Repo.get!(User, id)
+  def find_by_id!(user_id) do
+    user_id
+    |> UserQuery.find_by_id()
+    |> Repo.one!()
+  end
 
   @doc """
   Gets a single user by username.
@@ -31,13 +36,17 @@ defmodule Gscraper.Account.Users do
 
   ## Examples
 
-      iex> get_user_by_username('johndoe')
+      iex> find_by_username('johndoe')
       %User{}
-      iex> get_user_by_username('nonexist')
+      iex> find_by_username('nonexist')
       ** nil
 
   """
-  def get_user_by_username(username), do: Repo.get_by(User, username: username)
+  def find_by_username(username) do
+    username
+    |> UserQuery.find_by_username()
+    |> Repo.one()
+  end
 
   @doc """
   Creates a user.
@@ -83,7 +92,7 @@ defmodule Gscraper.Account.Users do
 
   """
   def authenticate_user(username, plain_password) do
-    case get_user_by_username(username) do
+    case find_by_username(username) do
       nil ->
         {:error, :invalid_credentials}
 
