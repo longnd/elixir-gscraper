@@ -7,5 +7,5 @@
   exit: "low",
   format: "txt",
   ignore: ["Config.HTTPS", "Config.CSP"],
-  ignore_files: []
+  ignore_files: ["config/config.exs"]
 ]
