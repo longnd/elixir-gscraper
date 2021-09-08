@@ -15,7 +15,7 @@ defmodule GscraperWeb.RegistrationController do
       {:ok, user} ->
         conn
         |> Authentication.log_in(user)
-        |> put_flash(:info, "Welcome, #{user.username}!")
+        |> put_flash(:info, dgettext("auth", "Welcome, %{username}!", username: user.username))
         |> redirect(to: Routes.dashboard_path(conn, :index))
 
       {:error, %Ecto.Changeset{} = changeset} ->

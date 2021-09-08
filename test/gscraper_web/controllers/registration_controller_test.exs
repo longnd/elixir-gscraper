@@ -13,14 +13,15 @@ defmodule GscraperWeb.RegistrationControllerTest do
   end
 
   describe "POST /signup" do
-    test "given valid attributes, it redirects to the dashboard", %{conn: conn} do
-      conn = post(conn, Routes.registration_path(conn, :create), user: params_for(:user))
+    test "redirects the user to the dashboard page given valid attributes", %{conn: conn} do
+      create_params = %{username: username} = params_for(:user)
+      conn = post(conn, Routes.registration_path(conn, :create), user: create_params)
 
       assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
-      assert get_flash(conn, :info) == dgettext("auth", "User created successfully.")
+      assert get_flash(conn, :info) == dgettext("auth", "Welcome, %{username}!", username: username)
     end
 
-    test "given invalid attributes, it renders errors", %{conn: conn} do
+    test "renders the errors given invalid attributes", %{conn: conn} do
       invalid_params = params_for(:user, password: nil)
       conn = post(conn, Routes.registration_path(conn, :create), user: invalid_params)
 
