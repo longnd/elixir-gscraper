@@ -18,6 +18,7 @@ defmodule GscraperWeb.ConnCase do
   use ExUnit.CaseTemplate
 
   alias Ecto.Adapters.SQL.Sandbox
+  alias Gscraper.Guardian.Authentication
 
   using do
     quote do
@@ -32,6 +33,15 @@ defmodule GscraperWeb.ConnCase do
 
       # The default endpoint for testing
       @endpoint GscraperWeb.Endpoint
+
+      def login_user(conn, user \\ insert(:user)) do
+        conn =
+          conn
+          |> Plug.Test.init_test_session(%{})
+          |> Authentication.log_in(user)
+
+        conn
+      end
     end
   end
 

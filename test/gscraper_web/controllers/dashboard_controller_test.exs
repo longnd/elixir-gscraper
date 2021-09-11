@@ -1,8 +1,14 @@
-defmodule GscraperWeb.PageControllerTest do
+defmodule GscraperWeb.DashboardControllerTest do
   use GscraperWeb.ConnCase, async: true
 
-  test "GET /", %{conn: conn} do
-    conn = get(conn, "/")
-    assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+  describe "GET /" do
+    test "renders the dashboard page", %{conn: conn} do
+      conn =
+        conn
+        |> login_user
+        |> get("/")
+
+      assert html_response(conn, 200) =~ "Welcome to Phoenix!"
+    end
   end
 end

@@ -54,7 +54,8 @@ defmodule Gscraper.Account.UsersTest do
 
   describe "authenticate_user" do
     test "returns the invalid credential error given a non-existing username and a password" do
-      assert {:error, :invalid_credentials} = Users.authenticate_user("non-exist-username", "password")
+      assert {:error, :invalid_credentials} =
+               Users.authenticate_user("non-exist-username", "password")
     end
 
     test "returns the invalid credential error given an existing username and an invalid password" do
@@ -66,7 +67,8 @@ defmodule Gscraper.Account.UsersTest do
     test "returns the user given a valid username and invalid password" do
       %{id: user_id} = insert(:user, username: "johndoe", password: "password")
 
-      assert {:ok, %User{id: ^user_id, username: "johndoe"}} = Users.authenticate_user("johndoe", "password")
+      assert {:ok, %User{id: ^user_id, username: "johndoe"}} =
+               Users.authenticate_user("johndoe", "password")
     end
   end
 end
