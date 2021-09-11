@@ -19,7 +19,7 @@ defmodule GscraperWeb.SessionController do
   defp login_reply({:ok, user}, conn) do
     conn
     |> Authentication.log_in(user)
-    |> put_flash(:info, "Welcome back, #{user.username}!")
+    |> put_flash(:info, dgettext("auth", "Welcome back, %{username}!", username: user.username))
     |> redirect(to: Routes.dashboard_path(conn, :index))
   end
 
