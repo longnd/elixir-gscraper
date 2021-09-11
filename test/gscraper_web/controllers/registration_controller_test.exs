@@ -1,7 +1,7 @@
 defmodule GscraperWeb.RegistrationControllerTest do
   use GscraperWeb.ConnCase, async: true
 
-  describe "GET /signup" do
+  describe "GET new/2" do
     test "renders the registration form", %{conn: conn} do
       conn = get(conn, Routes.registration_path(conn, :new))
       response = html_response(conn, 200)
@@ -12,7 +12,7 @@ defmodule GscraperWeb.RegistrationControllerTest do
     end
   end
 
-  describe "POST /signup" do
+  describe "POST create/2" do
     test "redirects the user to the dashboard page given valid attributes", %{conn: conn} do
       create_params = %{username: username} = params_for(:user)
       conn = post(conn, Routes.registration_path(conn, :create), user: create_params)
