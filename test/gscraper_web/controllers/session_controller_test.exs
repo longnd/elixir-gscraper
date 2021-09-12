@@ -35,7 +35,7 @@ defmodule GscraperWeb.SessionControllerTest do
                dgettext("auth", "Welcome back, %{username}!", username: user.username)
     end
 
-    test "renders the errors given invalid attributes", %{conn: conn} do
+    test "renders the errors given invalid credentials", %{conn: conn} do
       user = insert(:user)
 
       conn =
