@@ -24,7 +24,7 @@ defmodule GscraperWeb.Router do
   # This pipeline is used to skip a route and redirect to the dashboard page
   # if the user already logged in.
   pipeline :skip_after_auth do
-    plug GscraperWeb.Plugs.SkipAfterAuth
+    plug GscraperWeb.Plugs.SkipAfterAuthPlug
   end
 
   pipeline :ensure_auth do

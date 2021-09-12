@@ -14,7 +14,7 @@ defmodule GscraperWeb.SessionControllerTest do
     test "redirects to the dashboard page given the user already logged in", %{conn: conn} do
       conn =
         conn
-        |> login_user
+        |> login_user()
         |> get(Routes.session_path(conn, :new))
 
       assert redirected_to(conn) == Routes.dashboard_path(conn, :index)

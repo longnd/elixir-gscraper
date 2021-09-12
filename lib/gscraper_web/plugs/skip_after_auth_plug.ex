@@ -1,4 +1,4 @@
-defmodule GscraperWeb.Plugs.SkipAfterAuth do
+defmodule GscraperWeb.Plugs.SkipAfterAuthPlug do
   @moduledoc """
     To skip a route and redirect to the dashboard page if the user is
     already authenticated.
