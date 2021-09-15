@@ -26,4 +26,10 @@ defmodule Gscraper.Account.PasswordsTest do
       assert Passwords.verify(password, encrypted_password) == false
     end
   end
+
+  describe "no_user_verify/1" do
+    test "returns false" do
+      assert Passwords.no_user_verify() == false
+    end
+  end
 end

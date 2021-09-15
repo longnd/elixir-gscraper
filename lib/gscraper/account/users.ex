@@ -85,6 +85,7 @@ defmodule Gscraper.Account.Users do
   def authenticate_user(username, plain_password) do
     case find_by_username(username) do
       nil ->
+        Passwords.no_user_verify()
         {:error, :invalid_credentials}
 
       user ->
