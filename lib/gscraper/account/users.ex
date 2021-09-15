@@ -6,7 +6,6 @@ defmodule Gscraper.Account.Users do
   import Ecto.Query, warn: false
 
   alias Gscraper.Account.Passwords
-  alias Gscraper.Account.Queries.UserQuery
   alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
 
@@ -23,11 +22,7 @@ defmodule Gscraper.Account.Users do
       ** (Ecto.NoResultsError)
 
   """
-  def find_by_id!(user_id) do
-    user_id
-    |> UserQuery.find_by_id()
-    |> Repo.one!()
-  end
+  def find_by_id!(user_id), do: Repo.get!(User, user_id)
 
   @doc """
   Gets a single user by username.
@@ -42,11 +37,7 @@ defmodule Gscraper.Account.Users do
       ** nil
 
   """
-  def find_by_username(username) do
-    username
-    |> UserQuery.find_by_username()
-    |> Repo.one()
-  end
+  def find_by_username(username), do: Repo.get_by(User, username: username)
 
   @doc """
   Creates a user.
