@@ -1,7 +1,7 @@
-defmodule Gscraper.Accounts.UserTest do
+defmodule Gscraper.Account.Schema.UserTest do
   use Gscraper.DataCase, async: true
 
-  alias Gscraper.Accounts.User
+  alias Gscraper.Account.Schemas.User
 
   describe "changeset/2" do
     test "username, password and password_confirmation are required" do

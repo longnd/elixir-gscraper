@@ -17,7 +17,7 @@ defmodule GscraperWeb.RegistrationControllerTest do
       conn = post(conn, Routes.registration_path(conn, :create), user: params_for(:user))
 
       assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
-      assert get_flash(conn, :info) == "User created successfully."
+      assert get_flash(conn, :info) == dgettext("auth", "User created successfully.")
     end
 
     test "given invalid attributes, it renders errors", %{conn: conn} do
@@ -25,7 +25,7 @@ defmodule GscraperWeb.RegistrationControllerTest do
       conn = post(conn, Routes.registration_path(conn, :create), user: invalid_params)
 
       assert get_flash(conn, :error) ==
-               "Something went wrong! Please check the errors for more details."
+               dgettext("error", "Something went wrong! Please check the errors for more details.")
     end
   end
 end

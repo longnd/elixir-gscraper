@@ -24,8 +24,9 @@ defmodule GscraperWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import GscraperWeb.ConnCase
       import Gscraper.Factory
+      import GscraperWeb.ConnCase
+      import GscraperWeb.Gettext
 
       alias GscraperWeb.Router.Helpers, as: Routes
 

@@ -1,16 +1,16 @@
 defmodule GscraperWeb.RegistrationController do
   use GscraperWeb, :controller
 
-  alias Gscraper.Accounts
-  alias Gscraper.Accounts.User
+  alias Gscraper.Account.Schemas.User
+  alias Gscraper.Account.Users
 
   def new(conn, _params) do
-    changeset = Accounts.change_user(%User{})
+    changeset = Users.change_user(%User{})
     render(conn, "new.html", changeset: changeset)
   end
 
   def create(conn, %{"user" => user_params}) do
-    case Accounts.create_user(user_params) do
+    case Users.create_user(user_params) do
       {:ok, _user} ->
         conn
         |> put_flash(:info, dgettext("auth", "User created successfully."))
@@ -20,7 +20,7 @@ defmodule GscraperWeb.RegistrationController do
         conn
         |> put_flash(
           :error,
-          dgettext("shared", "Something went wrong! Please check the errors for more details.")
+          dgettext("error", "Something went wrong! Please check the errors for more details.")
         )
         |> render("new.html", changeset: changeset)
     end

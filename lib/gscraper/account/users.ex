@@ -1,10 +1,10 @@
-defmodule Gscraper.Accounts do
+defmodule Gscraper.Account.Users do
   @moduledoc """
-  The Accounts context.
+  The Users context.
   """
 
   import Ecto.Query, warn: false
-  alias Gscraper.Accounts.User
+  alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
 
   @doc """

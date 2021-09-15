@@ -6,8 +6,11 @@ defmodule GscraperWeb.FeatureCase do
       use Wallaby.Feature
 
       import Gscraper.Factory
+      import GscraperWeb.Gettext
 
       alias GscraperWeb.Router.Helpers, as: Routes
+
+      @moduletag :feature_test
     end
   end
 end
