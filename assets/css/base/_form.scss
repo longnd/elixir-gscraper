@@ -7,13 +7,10 @@ $input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, .25);
   width: 100%;
 
   &__row {
-    @extend .form-row;
     @include make-row(0);
   }
 
   &__group {
-    @extend .form-group;
-
     margin-bottom: rem(16px);
 
     label {
