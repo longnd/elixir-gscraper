@@ -1,5 +1,5 @@
-$input-error-border-color: rgba(204, 16, 16, .75);
-$input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, .25);
+$input-error-border-color: rgba(204, 16, 16, 0.75);
+$input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, 0.25);
 
 .form {
   $self: &;
@@ -20,9 +20,9 @@ $input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, .25);
     }
 
     &.required > label:first-of-type::after {
-      color: $red-500;
       content: '*';
       padding-left: rem(4px);
+      color: $red-500;
     }
   }
 
@@ -37,11 +37,11 @@ $input-error-box-shadow: rem(0 0 0 4px) rgba(204, 16, 16, .25);
 
   .invalid-feedback {
     @extend .invalid-feedback;
+    display: block;
+    margin-top: rem(10px);
     color: $red-500;
     font-size: rem(14px);
     line-height: rem(21px);
-    margin-top: rem(10px);
-    display: block;
 
     // Empty feedback collapse automatically
     &:empty {
