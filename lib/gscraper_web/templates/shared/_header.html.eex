@@ -3,18 +3,20 @@
     <img class="app-header__logo" src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Logo"/>
   </a>
 
-  <div class="app-header__user">
-    <button class="btn app-header__user-avatar" type="button" data-bs-toggle="dropdown" data-bs-offset="0,12" aria-expanded="false">
-      <%= current_user_initial_character_username(@conn) %>
-    </button>
-    <ul class="dropdown-menu user-dropdown-menu" id="userDropdownMenu">
-      <li class="dropdown-menu__item">
-        <%= raw dgettext("page", "Hi, <strong>%{username}</strong> 👋", username: current_user_username(@conn)) %>
-      </li>
-      <li class="dropdown-menu__divider"></li>
-      <li class="dropdown-menu__item">
-        <%= link(dgettext("auth", "Logout"), to: Routes.session_path(@conn, :delete), method: :delete) %>
-      </li>
-    </ul>
-  </div>
+  <%= if current_user(@conn) do %>
+    <div class="app-header__user">
+      <button class="btn app-header__user-avatar" type="button" data-bs-toggle="dropdown" data-bs-offset="0,12" aria-expanded="false">
+        <%= current_user_initial_character_username(@conn) %>
+      </button>
+      <ul class="dropdown-menu user-dropdown-menu" id="userDropdownMenu">
+        <li class="dropdown-menu__item">
+          <%= raw dgettext("page", "Hi, <strong>%{username}</strong> 👋", username: current_user_username(@conn)) %>
+        </li>
+        <li class="dropdown-menu__divider"></li>
+        <li class="dropdown-menu__item">
+          <%= link(dgettext("auth", "Logout"), to: Routes.session_path(@conn, :delete), method: :delete) %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
 </header>
