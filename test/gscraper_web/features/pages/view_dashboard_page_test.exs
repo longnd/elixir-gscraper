@@ -1,4 +1,4 @@
-defmodule GscraperWeb.HomePage.ViewDashboardPageTest do
+defmodule GscraperWeb.Pages.ViewDashboardPageTest do
   use GscraperWeb.FeatureCase, async: true
 
   feature "view dashboard page", %{session: session} do

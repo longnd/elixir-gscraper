@@ -1,0 +1,18 @@
+.dropdown-menu {
+  @extend .dropdown-menu;
+
+  cursor: pointer;
+
+  &__item {
+    @extend .dropdown-item;
+
+    a {
+      color: unset;
+      text-decoration: none;
+    }
+  }
+
+  &__divider {
+    @extend .dropdown-divider;
+  }
+}
