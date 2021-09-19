@@ -13,7 +13,7 @@
       </li>
       <li class="dropdown-menu__divider"></li>
       <li class="dropdown-menu__item">
-        <a href="#"><%= dgettext("auth", "Logout") %></a>
+        <%= link(dgettext("auth", "Logout"), to: Routes.session_path(@conn, :delete), method: :delete) %>
       </li>
     </ul>
   </div>
