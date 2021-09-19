@@ -10,11 +10,7 @@
   </head>
 
   <body class="<%= body_class_name(@conn) %>">
-    <header class="app-header">
-      <a class="app-header__brand" href="/">
-        <img class="app-header__logo" src="<%= Routes.static_path(@conn, "/images/logo.svg") %>" alt="Logo"/>
-      </a>
-    </header>
+    <%= render SharedView, "_header.html", assigns %>
 
     <main role="main" class="app-main">
       <div class="app-main__container">
