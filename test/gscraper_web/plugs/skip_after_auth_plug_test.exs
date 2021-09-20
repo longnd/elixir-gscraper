@@ -9,21 +9,23 @@ defmodule GscraperWeb.Plugs.SkipAfterAuthPlugTest do
     end
   end
 
-  test "renders to the dashboard page given the user already logged in", %{conn: conn} do
-    conn =
-      conn
-      |> login_user()
-      |> fetch_flash
-      |> SkipAfterAuthPlug.call(%{})
+  describe "call/2" do
+    test "renders to the dashboard page given the user already logged in", %{conn: conn} do
+      conn =
+        conn
+        |> login_user()
+        |> fetch_flash
+        |> SkipAfterAuthPlug.call(%{})
 
-    assert conn.halted
-    assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
-    assert get_flash(conn, :info) == dgettext("auth", "You are already signed in.")
-  end
+      assert conn.halted
+      assert redirected_to(conn) == Routes.dashboard_path(conn, :index)
+      assert get_flash(conn, :info) == dgettext("auth", "You are already signed in.")
+    end
 
-  test "continues the user flow", %{conn: conn} do
-    conn = SkipAfterAuthPlug.call(conn, %{})
+    test "continues the user flow", %{conn: conn} do
+      conn = SkipAfterAuthPlug.call(conn, %{})
 
-    refute conn.halted
+      refute conn.halted
+    end
   end
 end
