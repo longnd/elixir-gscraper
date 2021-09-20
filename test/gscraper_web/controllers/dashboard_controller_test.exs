@@ -1,7 +1,7 @@
 defmodule GscraperWeb.DashboardControllerTest do
   use GscraperWeb.ConnCase, async: true
 
-  describe "GET /" do
+  describe "GET index/2" do
     test "renders the dashboard page given the user already logged in", %{conn: conn} do
       conn =
         conn
