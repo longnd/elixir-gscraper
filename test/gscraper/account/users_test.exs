@@ -20,7 +20,7 @@ defmodule Gscraper.Account.UsersTest do
     end
   end
 
-  describe "find_by_id!" do
+  describe "find_by_id!/1" do
     test "returns the user given an existing user id" do
       %{id: user_id, username: username} = insert(:user)
 
@@ -37,7 +37,7 @@ defmodule Gscraper.Account.UsersTest do
     end
   end
 
-  describe "find_by_username" do
+  describe "find_by_username/1" do
     test "returns the user given an existing username" do
       %{id: user_id, username: username} = insert(:user)
 
@@ -52,7 +52,7 @@ defmodule Gscraper.Account.UsersTest do
     end
   end
 
-  describe "authenticate_user" do
+  describe "authenticate_user/1" do
     test "returns the invalid credential error given a non-existing username and a password" do
       assert {:error, :invalid_credentials} =
                Users.authenticate_user("non-exist-username", "password")
