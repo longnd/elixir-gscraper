@@ -16,8 +16,7 @@ defmodule GscraperWeb.SharedViewTest do
   end
 
   describe "current_user_username/1" do
-    test "returns the current user's username from conn given the current user object exists in the conn",
-         %{conn: conn} do
+    test "returns the username given the conn with current user", %{conn: conn} do
       user = build(:user)
       conn = Plug.Conn.put_private(conn, :guardian_default_resource, user)
 
@@ -30,8 +29,7 @@ defmodule GscraperWeb.SharedViewTest do
   end
 
   describe "current_user_initial_character_username/1" do
-    test "returns the first character of the current user's username from conn given the current user object exists in the conn",
-         %{conn: conn} do
+    test "returns the first character of username given the conn with current user", %{conn: conn} do
       user = build(:user, username: "johndoe")
       conn = Plug.Conn.put_private(conn, :guardian_default_resource, user)
 
