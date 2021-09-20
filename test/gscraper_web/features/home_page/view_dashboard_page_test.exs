@@ -4,7 +4,7 @@ defmodule GscraperWeb.HomePage.ViewDashboardPageTest do
   feature "view dashboard page", %{session: session} do
     session
     |> login_user()
-    |> visit(Routes.dashboard_path(GscraperWeb.Endpoint, :index))
+    |> visit(Routes.dashboard_path(Endpoint, :index))
 
     assert_has(session, Query.text("Welcome to Phoenix!"))
   end
