@@ -31,6 +31,11 @@ config :gscraper, Oban,
   plugins: [Oban.Plugins.Pruner],
   queues: [default: 10]
 
+# Configures Guardian
+config :gscraper, Gscraper.Guardian.Authentication,
+  issuer: "gscraper",
+  secret_key: "6ofVI1NixLwA+JLAc6VE5+OEsqbIojNPoO5KE76wpq6thaiwAwxG2fG7E/Biytac"
+
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
 import_config "#{Mix.env()}.exs"
