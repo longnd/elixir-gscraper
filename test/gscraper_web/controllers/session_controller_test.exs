@@ -46,4 +46,16 @@ defmodule GscraperWeb.SessionControllerTest do
       assert get_flash(conn, :error) == "invalid_credentials"
     end
   end
+
+  describe "DELETE /2" do
+    test "logs the user out and redirects to the login page", %{conn: conn} do
+      conn =
+        conn
+        |> login_user()
+        |> delete(Routes.session_path(conn, :delete))
+
+      assert get_session(conn, :guardian_default_token) == nil
+      assert redirected_to(conn) == Routes.session_path(conn, :new)
+    end
+  end
 end

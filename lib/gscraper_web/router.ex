@@ -47,6 +47,8 @@ defmodule GscraperWeb.Router do
     pipe_through [:browser, :guardian, :ensure_auth]
 
     get "/", DashboardController, :index
+
+    delete "/logout", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.

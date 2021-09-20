@@ -33,6 +33,13 @@ defmodule Gscraper.Guardian.Authentication do
   end
 
   @doc """
+    Call the Guardian's sign_out function to log the user out.
+  """
+  def log_out(conn) do
+    __MODULE__.Plug.sign_out(conn)
+  end
+
+  @doc """
     Get the current logged in user
   """
   def get_current_user(conn) do

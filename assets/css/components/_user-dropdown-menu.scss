@@ -1,0 +1,24 @@
+.user-dropdown-menu {
+  min-width: rem(180px);
+  border-color: rem(1px) solid rgba(0, 0, 0, 0.15);
+  background-color: $gray-900;
+
+  .dropdown-menu__divider {
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .dropdown-menu__item {
+    color: $gray-500;
+    font-size: map-get($font-size, 'sm');
+
+    &:first-child {
+      color: $white;
+      cursor: default;
+    }
+
+    &:hover {
+      background-color: transparent;
+      color: $white;
+    }
+  }
+}
