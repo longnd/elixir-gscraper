@@ -3,27 +3,21 @@
 @import 'variables';
 
 // Dependencies
-@import 'bootstrap';
+@import 'vendor';
 
 // Functions
-@import 'functions/sizing';
+@import 'functions';
 
 // Mixins
 
 // Base
-@import 'base/form';
-@import 'base/button';
-@import 'base/typography';
+@import 'base';
 
 // Layouts
-@import 'layouts/default';
+@import 'layouts';
 
 // Components
-@import 'components/alert';
-@import 'components/app-header';
-@import 'components/app-main';
-@import 'components/card-auth';
-@import 'components/form-auth';
+@import 'components';
 
 // Screens
-@import 'screens/registration';
+@import 'screens';

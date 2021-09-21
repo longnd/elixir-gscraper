@@ -1,3 +1,4 @@
+/* stylelint-disable selector-no-qualifying-type */
 body.registration,
 body.session {
   .app-header {
@@ -12,3 +13,4 @@ body.session {
     }
   }
 }
+/* stylelint-enable selector-no-qualifying-type */

@@ -77,10 +77,18 @@ defmodule Gscraper.MixProject do
       "assets.compile": &compile_assets/1,
       coverage: ["coveralls.html --raise"],
       codebase: [
+        "cmd npm run eslint --prefix assets",
+        "cmd npm run stylelint --prefix assets",
         "deps.unlock --check-unused",
         "format --check-formatted",
         "credo --strict",
         "sobelow --config"
+      ],
+      "codebase.fix": [
+        "cmd npm run eslint.fix --prefix assets",
+        "cmd npm run stylelint.fix --prefix assets",
+        "deps.clean --unlock --unused",
+        "format"
       ],
       setup: ["deps.get", "ecto.setup", "cmd npm install --prefix assets"],
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],

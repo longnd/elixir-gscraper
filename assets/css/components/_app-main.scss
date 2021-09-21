@@ -1,10 +1,9 @@
 .app-main {
-  align-items: center;
   display: flex;
+  align-items: center;
   min-height: calc(100vh - #{$app-header-height});
 
   &__container {
-    @include make-container();
-    @include make-container-max-widths();
+    @extend .container;
   }
 }

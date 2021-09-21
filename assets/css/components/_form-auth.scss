@@ -1,14 +1,14 @@
-$form-border-color: rgba(0, 0, 0, .125);
+$form-border-color: rgba(0, 0, 0, 0.125);
 
 .form-auth {
-  background-color: $white;
+  padding: rem(24px);
   border: rem(1px) solid $form-border-color;
   border-radius: rem(4px);
-  padding: rem(24px);
+  background-color: $white;
 
   &__footer {
-    font-size: map-get($font-size, 'sm');
     margin-top: rem(16px);
+    font-size: map-get($font-size, 'sm');
   }
 
   .btn {
