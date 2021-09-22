@@ -1,0 +1,14 @@
+body.registration,
+body.session {
+  .app-header {
+    justify-content: center;
+  }
+
+  .app-main {
+    background-color: $gray-100;
+
+    &__container {
+      max-width: rem(330px);
+    }
+  }
+}

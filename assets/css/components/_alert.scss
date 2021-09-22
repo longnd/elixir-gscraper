@@ -1,0 +1,20 @@
+.alert {
+  margin-top: rem(32px);
+  font-size: map-get($font-size, 'sm');
+
+  &--primary {
+    @extend .alert-primary;
+  }
+
+  &--success {
+    @extend .alert-success;
+  }
+
+  &--danger {
+    @extend .alert-danger;
+  }
+
+  &:empty {
+    display: none;
+  }
+}
