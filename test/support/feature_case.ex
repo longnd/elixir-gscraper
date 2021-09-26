@@ -17,7 +17,7 @@ defmodule GscraperWeb.FeatureCase do
 
       def login_user(session, user \\ insert(:user)) do
         session
-        |> visit(Routes.session_path(GscraperWeb.Endpoint, :new))
+        |> visit(Routes.session_path(Endpoint, :new))
         |> fill_in(Wallaby.Query.text_field("user_username"), with: user.username)
         |> fill_in(Wallaby.Query.text_field("user_password"), with: user.password)
         |> click(Wallaby.Query.button("Login"))
