@@ -1,38 +1,17 @@
-<section class="phx-hero">
-  <h1><%= gettext "Welcome to %{name}!", name: "Phoenix" %></h1>
-  <p>Peace of mind from prototype to production</p>
-</section>
+<div class="card card-uploader">
+  <div class="card__body">
+    <div class="card__heading">
+      <h6 class="card__title"><%= dgettext("upload", "Keyword File") %></h6>
+      <p class="card__subtitle">
+        <%= raw dgettext("upload", "Please use <a href='#'>this template</a> to upload keywords with the correct format.") %>
+      </p>
+    </div>
+  </div>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.5/CHANGELOG.md">v1.5 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on Freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-    </ul>
-  </article>
-</section>
+  <%= form_for @conn, "/", [method: "post", class: "form", multipart: true], fn f-> %>
+  <div class="form__row">
+    <%= file_input f, :keyword_file, class: "form__control", required: true, autofocus: true %>
+    <%= submit dgettext("upload", "Upload"), class: "btn btn--primary" %>
+  </div>
+  <% end %>
+</div>
