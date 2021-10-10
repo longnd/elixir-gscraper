@@ -1,3 +1,11 @@
 .card-uploader {
-  border: 0;
+  .form__group {
+    &:first-of-type {
+      flex-grow: 1;
+    }
+
+    &:last-of-type {
+      padding-left: rem(16px);
+    }
+  }
 }
