@@ -1,0 +1,7 @@
+/* stylelint-disable selector-no-qualifying-type */
+body.index {
+  .card-uploader {
+    @include make-col(6);
+  }
+}
+/* stylelint-enable selector-no-qualifying-type */
