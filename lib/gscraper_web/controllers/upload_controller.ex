@@ -14,7 +14,7 @@ defmodule GscraperWeb.UploadController do
     if changeset.valid? do
       conn
       |> put_flash(
-        :success,
+        :info,
         dgettext("keyword", "File uploaded successfully and being processed.")
       )
       |> redirect(to: Routes.dashboard_path(conn, :index))
