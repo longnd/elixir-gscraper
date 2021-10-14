@@ -15,7 +15,7 @@ defmodule Gscraper.Search.Schemas.KeywordFileTest do
       assert changeset.changes == attrs
     end
 
-    test "returns valid changeset given the file does NOT exist in the params" do
+    test "returns invalid changeset given the file does NOT exist in the params" do
       changeset = KeywordFile.create_changeset(%KeywordFile{}, %{file: nil})
 
       assert changeset.valid? == false

@@ -9,7 +9,7 @@ defmodule GscraperWeb.DashboardControllerTest do
         |> get(Routes.dashboard_path(conn, :index))
 
       assert html_response(conn, 200) =~ "Keyword File"
-      assert html_response(conn, 200) =~ "Keyword File"
+      assert html_response(conn, 200) =~ "Upload"
     end
 
     test "redirects to the log in page given the user has not logged in", %{conn: conn} do
