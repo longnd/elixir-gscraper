@@ -1,6 +1,9 @@
 defmodule Gscraper.Search.Schemas.KeywordFile do
   use Ecto.Schema
+
   import Ecto.Changeset
+
+  alias NimbleCSV.RFC4180, as: CSV
 
   embedded_schema do
     field :file, :map
@@ -8,12 +11,28 @@ defmodule Gscraper.Search.Schemas.KeywordFile do
 
   @csv_file_ext ".csv"
   @csv_mime_type "text/csv"
+  @max_keyword_count 100
 
   def create_changeset(keyword_file, attrs \\ %{}) do
     keyword_file
     |> cast(attrs, [:file])
     |> validate_required([:file])
     |> validate_file_type()
+  end
+
+  def parse(file) do
+    keyword_list = parse_with_headers(file)
+
+    case length(keyword_list) do
+      length when length <= 0 ->
+        {:error, :file_is_empty}
+
+      length when length > @max_keyword_count ->
+        {:error, :keyword_list_exceeded}
+
+      _ ->
+        {:ok, keyword_list}
+    end
   end
 
   defp validate_file_type(changeset) do
@@ -25,5 +44,12 @@ defmodule Gscraper.Search.Schemas.KeywordFile do
         [file: "is not a CSV file"]
       end
     end)
+  end
+
+  defp parse_with_headers(file_path) do
+    file_path
+    |> File.stream!()
+    |> CSV.parse_stream()
+    |> Enum.to_list()
   end
 end

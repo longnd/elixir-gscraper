@@ -1,4 +1,6 @@
-<%= unless Enum.empty?(@keywords) do %>
+<%= if Enum.empty?(@keywords) do %>
+  <p><%= dgettext("keyword", "You don't have any keywords.") %></p>
+<% else %>
   <table class="table table--hover">
     <thead>
       <tr>
