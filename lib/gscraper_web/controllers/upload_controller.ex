@@ -19,6 +19,8 @@ defmodule GscraperWeb.UploadController do
 
       case Searches.parse_keyword_form_file(file.path) do
         {:ok, keyword_list} ->
+          Searches.process_keyword_list(keyword_list, get_current_user(conn))
+
           conn
           |> put_flash(
             :info,
@@ -45,8 +47,5 @@ defmodule GscraperWeb.UploadController do
       |> put_view(GscraperWeb.DashboardView)
       |> render("index.html", changeset: changeset)
     end
-  end
-
-  defp parse_keyword_from_file(file) do
   end
 end

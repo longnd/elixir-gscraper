@@ -12,4 +12,10 @@ defmodule Gscraper.Search.Schemas.Keyword do
 
     timestamps()
   end
+
+  def create_changeset(keyword, attrs \\ %{}) do
+    keyword
+    |> cast(attrs, [:keyword, :user_id])
+    |> validate_required([:keyword, :user_id])
+  end
 end
