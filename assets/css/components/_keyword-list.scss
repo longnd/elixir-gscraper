@@ -6,7 +6,7 @@
   }
 
   &__no-result-message {
-    text-align: center;
     font-size: map-get($font-size, 'sm');
+    text-align: center;
   }
 }
