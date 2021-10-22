@@ -1,5 +1,9 @@
 /* stylelint-disable selector-no-qualifying-type */
 body.index {
+  .app-content {
+    flex-direction: column;
+  }
+
   .card-uploader {
     @include make-col(6);
   }

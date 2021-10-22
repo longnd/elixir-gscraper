@@ -1,20 +1,24 @@
-<%= if Enum.empty?(@keywords) do %>
-  <p><%= dgettext("keyword", "You don't have any keywords.") %></p>
-<% else %>
-  <table class="table table--hover">
-    <thead>
-      <tr>
-        <th><%= dgettext("keyword", "Keyword") %></th>
-        <th><%= dgettext("keyword", "Status") %></th>
-      <tr>
-    </thead>
-    <tbody>
-      <%= for keyword <- @keywords do %>
+<div class="keyword-list">
+  <h5 class="keyword-list__header"><%= dgettext("keyword", "Your keyword list") %>:</h5>
+
+  <%= if Enum.empty?(@keywords) do %>
+    <p class="keyword-list__no-result-message"><%= dgettext("keyword", "You don't have any keywords.") %></p>
+  <% else %>
+    <table class="table table--hover keyword-list__body">
+      <thead>
         <tr>
-          <td><%= keyword.keyword %></td>
-          <td><%= keyword.status %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% end %>
+          <th><%= dgettext("keyword", "Keyword") %></th>
+          <th><%= dgettext("keyword", "Status") %></th>
+        <tr>
+      </thead>
+      <tbody>
+        <%= for keyword <- @keywords do %>
+          <tr>
+            <td><%= keyword.keyword %></td>
+            <td><%= keyword.status %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+</div>
