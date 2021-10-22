@@ -48,6 +48,8 @@ defmodule GscraperWeb.Router do
 
     get "/", DashboardController, :index
 
+    post "/upload", UploadController, :create
+
     delete "/logout", SessionController, :delete
   end
 

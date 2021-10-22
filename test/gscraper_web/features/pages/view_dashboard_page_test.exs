@@ -6,6 +6,7 @@ defmodule GscraperWeb.Pages.ViewDashboardPageTest do
     |> login_user()
     |> visit(Routes.dashboard_path(Endpoint, :index))
 
-    assert_has(session, Query.text("Welcome to Phoenix!"))
+    assert_has(session, Query.text("Keyword File"))
+    assert_has(session, Query.text("Upload"))
   end
 end

@@ -1,9 +1,13 @@
 .app-main {
   display: flex;
-  align-items: center;
   min-height: calc(100vh - #{$app-header-height});
+  margin-top: rem(32px);
 
   &__container {
     @extend .container;
   }
+}
+
+.app-content {
+  @include make-row(0);
 }

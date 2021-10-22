@@ -1,0 +1,25 @@
+.card {
+  @extend .card;
+
+  &__heading {
+    margin-bottom: rem(16px);
+  }
+
+  &__title {
+    margin-bottom: rem(8px);
+    text-transform: capitalize;
+  }
+
+  &__subtitle {
+    margin-bottom: 0;
+    color: $gray-700;
+  }
+
+  &__body {
+    padding: rem(16px);
+
+    @include media-breakpoint-up(md) {
+      padding: rem(24px);
+    }
+  }
+}
