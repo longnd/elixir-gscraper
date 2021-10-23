@@ -1,7 +1,7 @@
 <div class="keyword-list">
   <h5 class="keyword-list__header"><%= dgettext("keyword", "Your keyword list") %>:</h5>
 
-  <%= if Enum.empty?(@keywords) do %>
+  <%= if !assigns[:keywords] || Enum.empty?(@keywords) do %>
     <p class="keyword-list__no-result-message"><%= dgettext("keyword", "You don't have any keywords.") %></p>
   <% else %>
     <table class="table table--hover keyword-list__body">

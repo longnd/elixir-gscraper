@@ -1,12 +1,8 @@
 /* stylelint-disable selector-no-qualifying-type */
-body.dashboard {
-  &.index {
+body.upload {
+  &.create {
     .app-content {
       flex-direction: column;
-    }
-
-    .card-uploader {
-      @include make-col(6);
     }
   }
 }
