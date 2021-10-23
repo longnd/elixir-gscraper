@@ -4,6 +4,10 @@ body.upload {
     .app-content {
       flex-direction: column;
     }
+
+    .card-uploader {
+      @include make-col(6);
+    }
   }
 }
 /* stylelint-enable selector-no-qualifying-type */

@@ -1,6 +1,5 @@
 .app-main {
   display: flex;
-  min-height: calc(100vh - #{$app-header-height});
   margin-top: rem(32px);
 
   &__container {
