@@ -13,9 +13,10 @@ defmodule Gscraper.Search.Schemas.Keyword do
     timestamps()
   end
 
-  def create_changeset(keyword, attrs \\ %{}) do
+  def create_changeset(keyword \\ %__MODULE__{}, attrs) do
     keyword
     |> cast(attrs, [:keyword, :user_id])
     |> validate_required([:keyword, :user_id])
+    |> assoc_constraint(:user)
   end
 end

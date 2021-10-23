@@ -20,7 +20,7 @@ defmodule Gscraper.Search.Searches do
     |> Repo.insert()
   end
 
-  def process_keyword_list(keyword_list, %User{id: user_id} = current_user) do
+  def process_keyword_list(keyword_list, %User{id: user_id}) do
     Enum.each(keyword_list, fn keyword ->
       create_params = %{
         user_id: user_id,
