@@ -24,7 +24,7 @@ defmodule Gscraper.Search.Searches do
     Enum.each(keyword_list, fn keyword ->
       create_params = %{
         user_id: user_id,
-        keyword: List.first(keyword)
+        keyword: keyword
       }
 
       Ecto.Multi.new()

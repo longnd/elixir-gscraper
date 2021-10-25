@@ -36,7 +36,7 @@ defmodule Gscraper.Search.SearchesTest do
   describe "process_keyword_list/2" do
     test "save the keywords into database given a list of keyword and a user who uploaded the list" do
       user = insert(:user)
-      keyword_list = [["first keyword"], ["second keyword"]]
+      keyword_list = ["first keyword", "second keyword"]
 
       Searches.process_keyword_list(keyword_list, user)
 

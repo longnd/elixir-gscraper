@@ -36,7 +36,7 @@ defmodule Gscraper.Search.Schemas.KeywordFileTest do
     test "returns the keyword list given valid keyword file" do
       %{path: file_path} = upload_file_fixture("keyword_file/valid_file.csv")
 
-      assert {:ok, [["strawberry"], ["pineapple"], ["pomelo"]]} = KeywordFile.parse(file_path)
+      assert {:ok, ["strawberry", "pineapple", "pomelo"]} = KeywordFile.parse(file_path)
     end
 
     test "returns a `file_is_empty` error given an empty keyword file" do

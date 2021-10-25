@@ -51,5 +51,6 @@ defmodule Gscraper.Search.Schemas.KeywordFile do
     |> File.stream!()
     |> CSV.parse_stream()
     |> Enum.to_list()
+    |> List.flatten()
   end
 end
