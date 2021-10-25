@@ -17,7 +17,7 @@ defmodule Gscraper.Search.SearchesTest do
   end
 
   describe "create_keyword/1" do
-    test "create a keyword given valid params" do
+    test "creates a keyword given valid params" do
       %{id: user_id} = insert(:user)
       valid_attributes = %{keyword: "some keyword", user_id: user_id}
 
@@ -34,7 +34,7 @@ defmodule Gscraper.Search.SearchesTest do
   end
 
   describe "process_keyword_list/2" do
-    test "save the keywords into database given a list of keyword and a user who uploaded the list" do
+    test "saves the keywords into database given a list of keyword and a user who uploaded the list" do
       user = insert(:user)
       keyword_list = ["first keyword", "second keyword"]
 

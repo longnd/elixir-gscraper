@@ -55,7 +55,7 @@ defmodule GscraperWeb.UploadControllerTest do
       assert html_response(conn, 200) =~ "File is empty"
     end
 
-    test "renders errors when the uploaded file is has more than the supported number of keyword",
+    test "renders errors when the uploaded file has more than the supported limit of keywords",
          %{conn: conn} do
       upload_file = upload_file_fixture("keyword_file/exceeded_file.csv")
 

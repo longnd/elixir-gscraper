@@ -39,13 +39,13 @@ defmodule Gscraper.Search.Schemas.KeywordFileTest do
       assert {:ok, ["strawberry", "pineapple", "pomelo"]} = KeywordFile.parse(file_path)
     end
 
-    test "returns a `file_is_empty` error given an empty keyword file" do
+    test "returns a `:file_is_empty` error given an empty keyword file" do
       %{path: file_path} = upload_file_fixture("keyword_file/empty_file.csv")
 
       assert {:error, :file_is_empty} = KeywordFile.parse(file_path)
     end
 
-    test "returns a `keyword_list_exceeded` error given a keyword file exceeds the number of supported keywords" do
+    test "returns a `:keyword_list_exceeded` error given a keyword file exceeds the number of supported keywords" do
       %{path: file_path} = upload_file_fixture("keyword_file/exceeded_file.csv")
 
       assert {:error, :keyword_list_exceeded} = KeywordFile.parse(file_path)
