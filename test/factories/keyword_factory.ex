@@ -6,6 +6,7 @@ defmodule Gscraper.KeywordFactory do
       def keyword_factory do
         %Keyword{
           keyword: Faker.Lorem.word(),
+          status: :pending,
           user: build(:user)
         }
       end
