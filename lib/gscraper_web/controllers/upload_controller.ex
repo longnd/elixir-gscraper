@@ -14,43 +14,45 @@ defmodule GscraperWeb.UploadController do
       | action: :validate
     }
 
-    if changeset.valid? do
-      file = get_field(changeset, :file)
-      handle_valid_uploaded_file(conn, file)
+    with %Ecto.Changeset{valid?: true} <- changeset,
+         file <- get_field(changeset, :file),
+         {:ok, keyword_list} <- KeywordFile.parse(file.path) do
+      Searches.process_keyword_list(keyword_list, get_current_user(conn))
+
+      redirect_to_dashboard_with_flash_message(
+        conn,
+        :info,
+        dgettext("keyword", "File uploaded successfully and being processed.")
+      )
     else
-      keywords = conn |> get_current_user() |> Searches.list_keywords_by_user()
-
-      conn
-      |> put_flash(:error, dgettext("keyword", "Invalid file, please choose another file."))
-      |> put_view(GscraperWeb.DashboardView)
-      |> render("index.html", changeset: changeset, keywords: keywords)
-    end
-  end
-
-  defp handle_valid_uploaded_file(conn, file) do
-    case Searches.parse_keyword_form_file(file.path) do
-      {:ok, keyword_list} ->
-        Searches.process_keyword_list(keyword_list, get_current_user(conn))
-
-        conn
-        |> put_flash(
-          :info,
-          dgettext("keyword", "File uploaded successfully and being processed.")
-        )
-        |> redirect(to: Routes.dashboard_path(conn, :index))
+      %Ecto.Changeset{valid?: false} ->
+        rerender_upload_form_with_validation_message(conn, changeset)
 
       {:error, :file_is_empty} ->
-        conn
-        |> put_flash(:error, dgettext("keyword", "File is empty"))
-        |> redirect(to: Routes.dashboard_path(conn, :index))
+        redirect_to_dashboard_with_flash_message(conn, :error, dgettext("keyword", "File is empty"))
 
       {:error, :keyword_list_exceeded} ->
-        conn
-        |> put_flash(
+        redirect_to_dashboard_with_flash_message(
+          conn,
           :error,
           dgettext("keyword", "The number of keywords in the file exceeds 100.")
         )
-        |> redirect(to: Routes.dashboard_path(conn, :index))
     end
   end
+
+  defp redirect_to_dashboard_with_flash_message(conn, flash_type, flash_message) do
+    conn
+    |> put_flash(flash_type, flash_message)
+    |> redirect(to: Routes.dashboard_path(conn, :index))
+  end
+
+  defp rerender_upload_form_with_validation_message(conn, changeset) do
+    conn
+    |> put_flash(:error, dgettext("keyword", "Invalid file, please choose another file."))
+    |> put_view(GscraperWeb.DashboardView)
+    |> render("index.html", changeset: changeset, keywords: get_current_user_keywords(conn))
+  end
+
+  defp get_current_user_keywords(conn),
+    do: conn |> get_current_user() |> Searches.list_keywords_by_user()
 end

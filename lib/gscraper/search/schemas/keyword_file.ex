@@ -20,8 +20,8 @@ defmodule Gscraper.Search.Schemas.KeywordFile do
     |> validate_file_type()
   end
 
-  def parse(file) do
-    keyword_list = parse_with_headers(file)
+  def parse(file_path) do
+    keyword_list = parse_with_headers(file_path)
 
     case length(keyword_list) do
       length when length <= 0 ->
