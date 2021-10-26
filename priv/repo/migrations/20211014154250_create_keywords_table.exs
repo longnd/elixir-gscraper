@@ -10,6 +10,8 @@ defmodule Gscraper.Repo.Migrations.CreateKeywordsTable do
       timestamps()
     end
 
+    create index(:keywords, [:keyword])
+    create index(:keywords, [:status])
     create index(:keywords, [:user_id])
   end
 end
