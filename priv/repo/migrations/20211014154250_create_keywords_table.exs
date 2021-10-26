@@ -3,8 +3,8 @@ defmodule Gscraper.Repo.Migrations.CreateKeywordsTable do
 
   def change do
     create table(:keywords) do
-      add :keyword, :string
-      add :status, :string, size: 10
+      add :keyword, :string, null: false
+      add :status, :string, size: 10, null: false
       add :user_id, references(:users, on_delete: :delete_all), null: false
 
       timestamps()

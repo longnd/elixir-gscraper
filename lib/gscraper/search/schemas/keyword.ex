@@ -16,6 +16,7 @@ defmodule Gscraper.Search.Schemas.Keyword do
   def create_changeset(keyword \\ %__MODULE__{}, attrs) do
     keyword
     |> cast(attrs, [:keyword, :user_id])
+    |> put_change(:status, :pending)
     |> validate_required([:keyword, :user_id])
     |> assoc_constraint(:user)
   end
