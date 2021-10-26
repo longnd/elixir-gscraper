@@ -1,4 +1,8 @@
-FROM hexpm/elixir:1.11.3-erlang-23.2.1-alpine-3.12.1 AS build
+ARG ELIXIR_IMAGE_VERSION=1.12.2
+ARG ERLANG_IMAGE_VERSION=24.0.5
+ARG RELEASE_IMAGE_VERSION=3.13.5
+
+FROM hexpm/elixir:${ELIXIR_IMAGE_VERSION}-erlang-${ERLANG_IMAGE_VERSION}-alpine-${RELEASE_IMAGE_VERSION} AS build
 
 # install build dependencies
 RUN apk add --no-cache build-base npm git && \

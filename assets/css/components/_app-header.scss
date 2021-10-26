@@ -2,11 +2,11 @@
   @extend .navbar;
   @include make-container();
 
-  box-shadow: inset 0 rem(-1px) 0 $gray-300;
-  height: $app-header-height;
   justify-content: space-between;
-  padding-left: rem(32px);
+  height: $app-header-height;
   padding-right: rem(32px);
+  padding-left: rem(32px);
+  box-shadow: inset 0 rem(-1px) 0 $gray-300;
 
   &__brand {
     @extend .navbar-brand;
@@ -17,5 +17,19 @@
 
   &__logo {
     height: rem(40px);
+  }
+
+  &__user-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(32px);
+    height: rem(32px);
+    border-radius: 50%;
+    box-shadow: inset 0 0 rem(1px);
+    color: $blue-500;
+    font-size: map-get($font-size, 'xs');
+    font-weight: map-get($font-weight, 'bold');
+    text-transform: capitalize;
   }
 }

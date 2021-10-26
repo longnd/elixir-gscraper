@@ -16,6 +16,12 @@ defmodule GscraperWeb.SessionController do
     |> login_reply(conn)
   end
 
+  def delete(conn, _params) do
+    conn
+    |> Authentication.log_out()
+    |> redirect(to: Routes.session_path(conn, :new))
+  end
+
   defp login_reply({:ok, user}, conn) do
     conn
     |> Authentication.log_in(user)
