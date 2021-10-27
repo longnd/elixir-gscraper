@@ -1,8 +1,6 @@
 defmodule GscraperWeb.UploadController do
   use GscraperWeb, :controller
 
-  import Ecto.Changeset, only: [get_field: 2]
-
   alias Gscraper.Search.Schemas.KeywordFile
   alias Gscraper.Search.Searches
 
@@ -14,8 +12,7 @@ defmodule GscraperWeb.UploadController do
       | action: :validate
     }
 
-    with %Ecto.Changeset{valid?: true} <- changeset,
-         file <- get_field(changeset, :file),
+    with %Ecto.Changeset{valid?: true, changes: %{file: file}} <- changeset,
          {:ok, keyword_list} <- KeywordFile.parse(file.path) do
       Searches.process_keyword_list(keyword_list, get_current_user(conn))
 
