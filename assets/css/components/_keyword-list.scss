@@ -1,0 +1,12 @@
+.keyword-list {
+  margin-top: rem(40px);
+
+  &__body {
+    font-size: map-get($font-size, 'sm');
+  }
+
+  &__no-result-message {
+    font-size: map-get($font-size, 'sm');
+    text-align: center;
+  }
+}

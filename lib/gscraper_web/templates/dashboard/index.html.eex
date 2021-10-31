@@ -1,1 +1,2 @@
 <%= render GscraperWeb.UploadView, "_form.html", assigns %>
+<%= render GscraperWeb.KeywordView, "_list.html", assigns %>
