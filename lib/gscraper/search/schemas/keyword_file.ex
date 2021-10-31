@@ -24,7 +24,7 @@ defmodule Gscraper.Search.Schemas.KeywordFile do
     keyword_list = parse_with_headers(file_path)
 
     case length(keyword_list) do
-      length when length <= 0 ->
+      0 ->
         {:error, :file_is_empty}
 
       length when length > @max_keyword_count ->
