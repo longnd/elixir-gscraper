@@ -22,8 +22,8 @@ defmodule GscraperWeb do
       use Phoenix.Controller, namespace: GscraperWeb
 
       import Plug.Conn
-      import GscraperWeb.Gettext
       import Gscraper.Guardian.Authentication, only: [get_current_user: 1]
+      import GscraperWeb.Gettext
       alias GscraperWeb.Router.Helpers, as: Routes
     end
   end
