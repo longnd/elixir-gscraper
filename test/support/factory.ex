@@ -3,4 +3,5 @@ defmodule Gscraper.Factory do
 
   # Define your factories in /test/factories and declare it here,
   use Gscraper.UserFactory
+  use Gscraper.KeywordFactory
 end

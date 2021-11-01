@@ -1,0 +1,11 @@
+.table {
+  @extend .table;
+
+  &--striped {
+    @extend .table-striped;
+  }
+
+  &--hover {
+    @extend .table-hover;
+  }
+}

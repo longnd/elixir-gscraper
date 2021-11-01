@@ -8,7 +8,7 @@
           <%= file_input f, :file, class: "form__control", required: true, autofocus: true %>
           <%= error_tag f, :file %>
           <div class="form__text">
-            <%= raw dgettext("upload", "Please use <a href='%{template_url}'>this template</a> to upload keywords with the correct format.", template_url: Routes.static_path(@conn, "/csv/template.csv")) %>
+            <%= raw dgettext("upload", "Please use <a href='%{template_url}'>this template</a> to upload keywords with the correct format. </br>100 keywords per file is supported", template_url: Routes.static_path(@conn, "/csv/template.csv")) %>
           </div>
         </div>
         <div class="form__group">

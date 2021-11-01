@@ -4,6 +4,7 @@ defmodule Gscraper.Account.Schemas.User do
   import GscraperWeb.Gettext
 
   alias Gscraper.Account.Passwords
+  alias Gscraper.Search.Schemas.Keyword
 
   schema "users" do
     field :username, :string
@@ -11,6 +12,8 @@ defmodule Gscraper.Account.Schemas.User do
 
     field :password, :string, virtual: true
     field :password_confirmation, :string, virtual: true
+
+    has_many :keywords, Keyword
 
     timestamps()
   end

@@ -1,10 +1,6 @@
 .card {
   @extend .card;
 
-  &__heading {
-    margin-bottom: rem(16px);
-  }
-
   &__title {
     margin-bottom: rem(8px);
     text-transform: capitalize;
