@@ -41,7 +41,7 @@ defmodule Gscraper.MixProject do
   defp deps do
     [
       {:argon2_elixir, "~> 2.0"},
-      {:wallaby, "~> 0.28.0", [only: :test, runtime: false]},
+      {:wallaby, "~> 0.29.1", [only: :test, runtime: false]},
       {:sobelow, "~> 0.11.1", [only: [:dev, :test], runtime: false]},
       {:oban, "~> 2.6.1"},
       {:mimic, "~> 1.4.0", [only: :test]},
@@ -63,7 +63,9 @@ defmodule Gscraper.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.5"},
       {:guardian, "~> 2.0"},
-      {:nimble_csv, "~> 1.1"}
+      {:nimble_csv, "~> 1.1"},
+      {:tesla, "~> 1.4"},
+      {:hackney, "~> 1.17"}
     ]
   end
 

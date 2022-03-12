@@ -3,6 +3,9 @@ defmodule Gscraper.Search.Searches do
   alias Gscraper.Repo
   alias Gscraper.Search.Queries.KeywordQuery
   alias Gscraper.Search.Schemas.Keyword
+  alias Gscraper.Search.ScraperWorker
+
+  def find_keyword_by_id(id), do: Repo.get(Keyword, id)
 
   def list_keywords_by_user(user) do
     user
@@ -18,15 +21,20 @@ defmodule Gscraper.Search.Searches do
 
   def process_keyword_list(keyword_list, %User{id: user_id}) do
     Enum.each(keyword_list, fn keyword ->
-      create_params = %{
-        user_id: user_id,
-        keyword: keyword
-      }
+      create_params = %{user_id: user_id, keyword: keyword}
 
       Ecto.Multi.new()
-      |> Ecto.Multi.run(:keyword, fn _, _ -> create_keyword(create_params) end)
-      # Todo: enqueue a new search job for the given keyword
+      |> Ecto.Multi.run(:create_keyword, fn _, _ -> create_keyword(create_params) end)
+      |> Ecto.Multi.run(:enqueue_search_job, fn _, %{keyword: keyword} ->
+        enqueue_search_job(keyword)
+      end)
       |> Repo.transaction()
     end)
+  end
+
+  defp enqueue_search_job(%Keyword{id: keyword_id}) do
+    %{keyword_id: keyword_id}
+    |> ScraperWorker.new()
+    |> Oban.insert()
   end
 end
