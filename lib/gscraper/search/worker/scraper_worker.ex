@@ -3,14 +3,10 @@ defmodule Gscraper.Search.ScraperWorker do
 
   alias Gscraper.Search.Searches
 
-
-
   @impl Oban.Worker
   def perform(%Oban.Job{args: %{"keyword_id" => keyword_id}}) do
     keyword = Searches.find_keyword_by_id!(keyword_id)
 
     keyword
   end
-
-
 end
