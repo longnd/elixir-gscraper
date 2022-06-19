@@ -10,7 +10,7 @@ defmodule Gscraper.Repo.Migrations.CreateReportsTable do
       add :organic_link_count, :integer
       add :organic_link_list, {:array, :string}
       add :link_count, :integer
-      add :html_content, :text
+      add :html_content, :string
 
       timestamps()
     end

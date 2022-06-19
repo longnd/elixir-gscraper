@@ -11,9 +11,7 @@ defmodule Gscraper.Search.Schemas.Report do
     field :organic_link_count, :integer
     field :organic_link_list, {:array, :string}
     field :link_count, :integer
-    field :html_content, :text
-
-    timestamps()
+    field :html_content, :string
 
     belongs_to :keyword, Keyword
 
