@@ -2,7 +2,7 @@ defmodule Gscraper.Search.Searches do
   alias Gscraper.Account.Schemas.User
   alias Gscraper.Repo
   alias Gscraper.Search.Queries.KeywordQuery
-  alias Gscraper.Search.Schemas.Keyword
+  alias Gscraper.Search.Schemas.{Keyword, Report}
   alias Gscraper.Search.ScraperWorker
 
   def find_keyword_by_id(id), do: Repo.get(Keyword, id)
@@ -30,6 +30,13 @@ defmodule Gscraper.Search.Searches do
       end)
       |> Repo.transaction()
     end)
+  end
+
+  def create_report(%Keyword{} = keyword, attrs \\ %{}) do
+    keyword
+    |> Ecto.build_assoc(:report)
+    |> Report.create_changeset(attrs)
+    |> Repo.insert()
   end
 
   defp enqueue_search_job(%Keyword{id: keyword_id}) do

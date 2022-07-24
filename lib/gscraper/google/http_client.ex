@@ -18,10 +18,10 @@ defmodule Gscraper.Google.HttpClient do
   end
 
   defp handle_response({:ok, %{status: status, body: body}}) when status in 200..299,
-       do: {:ok, body}
+    do: {:ok, body}
 
   defp handle_response({:ok, %{status: status, body: body}}),
-       do: {:error, %{status: status, body: body}}
+    do: {:error, %{status: status, body: body}}
 
   defp handle_response({:error, reason}), do: {:error, reason}
 end
