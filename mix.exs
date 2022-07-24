@@ -48,6 +48,7 @@ defmodule Gscraper.MixProject do
       {:ex_machina, "~> 2.7.0", [only: :test]},
       {:excoveralls, "~> 0.14.0", [only: :test]},
       {:faker, "~> 0.16", only: :test},
+      {:floki, "~> 0.33.0"},
       {:dialyxir, "~> 1.1.0", [only: [:dev], runtime: false]},
       {:credo, "~> 1.5.6", [only: [:dev, :test], runtime: false]},
       {:phoenix, "~> 1.5.12"},
